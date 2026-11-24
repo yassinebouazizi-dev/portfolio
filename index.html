@@ -1,11 +1,2089 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=preview.html">
-  <title>Yassine Bouazizi - Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yassine Bouazizi — Full-Stack Developer & Cloud Systems Specialist | Cyber HUD Portfolio</title>
+  <meta name="description" content="Portfolio of Yassine Bouazizi: Full-Stack Web & Cloud Systems Developer, PFE 2027 Candidate at ISET Sidi Bouzid.">
+
+  <!-- Google Fonts: Orbitron for futuristic HUD headers, JetBrains Mono for code/terminal, Plus Jakarta Sans for UI -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;0,800;1,400&family=Orbitron:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+            cyber: ['"Orbitron"', 'sans-serif'],
+          },
+          colors: {
+            cyber: {
+              bg: '#070b14',
+              surface: '#0d1527',
+              card: '#0a1020',
+              border: '#1e293b',
+              accent: 'var(--cyber-accent)',
+              glow: 'var(--cyber-glow)',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      /* DEFAULT THEME: Modern "Normal Basic Color" - Electric Sapphire & Tech Cyan */
+      --cyber-accent: #3b82f6;        /* Electric Blue */
+      --cyber-accent-light: #60a5fa;  /* Light Blue */
+      --cyber-accent-dark: #1d4ed8;   /* Deep Blue */
+      --cyber-glow: rgba(59, 130, 246, 0.45);
+      --cyber-glow-subtle: rgba(59, 130, 246, 0.15);
+      --cyber-secondary: #06b6d4;     /* Tech Cyan */
+      --cyber-bg: #070b14;
+      --cyber-card: #0c1426;
+      --cyber-border: rgba(59, 130, 246, 0.35);
+      --cyber-badge-bg: rgba(59, 130, 246, 0.08);
+    }
+
+    /* THEME PRESETS: User can dynamically toggle */
+    body[data-theme="cyan"] {
+      --cyber-accent: #06b6d4;
+      --cyber-accent-light: #38bdf8;
+      --cyber-accent-dark: #0891b2;
+      --cyber-glow: rgba(6, 182, 212, 0.45);
+      --cyber-glow-subtle: rgba(6, 182, 212, 0.15);
+      --cyber-secondary: #3b82f6;
+      --cyber-card: #08162b;
+      --cyber-border: rgba(6, 182, 212, 0.35);
+      --cyber-badge-bg: rgba(6, 182, 212, 0.08);
+    }
+    body[data-theme="violet"] {
+      --cyber-accent: #8b5cf6;
+      --cyber-accent-light: #a78bfa;
+      --cyber-accent-dark: #6d28d9;
+      --cyber-glow: rgba(139, 92, 246, 0.45);
+      --cyber-glow-subtle: rgba(139, 92, 246, 0.15);
+      --cyber-secondary: #ec4899;
+      --cyber-card: #110e24;
+      --cyber-border: rgba(139, 92, 246, 0.35);
+      --cyber-badge-bg: rgba(139, 92, 246, 0.08);
+    }
+    body[data-theme="mono"] {
+      --cyber-accent: #e2e8f0;
+      --cyber-accent-light: #f8fafc;
+      --cyber-accent-dark: #94a3b8;
+      --cyber-glow: rgba(226, 232, 240, 0.35);
+      --cyber-glow-subtle: rgba(226, 232, 240, 0.1);
+      --cyber-secondary: #64748b;
+      --cyber-card: #12151c;
+      --cyber-border: rgba(226, 232, 240, 0.25);
+      --cyber-badge-bg: rgba(255, 255, 255, 0.05);
+    }
+
+    body {
+      background-color: var(--cyber-bg);
+      color: #f1f5f9;
+      overflow-x: hidden;
+    }
+
+    /* Cyber Chamfer / Angled Cut Corners */
+    .cyber-panel {
+      position: relative;
+      background: var(--cyber-card);
+      border: 1px solid var(--cyber-border);
+      clip-path: polygon(
+        0 14px, 14px 0,
+        calc(100% - 14px) 0, 100% 14px,
+        100% calc(100% - 14px), calc(100% - 14px) 100%,
+        14px 100%, 0 calc(100% - 14px)
+      );
+      box-shadow: 0 0 25px var(--cyber-glow-subtle);
+      transition: all 0.3s ease;
+    }
+
+    .cyber-panel-tab {
+      position: relative;
+      background: var(--cyber-card);
+      border: 1px solid var(--cyber-border);
+      clip-path: polygon(
+        0 0,
+        calc(100% - 24px) 0,
+        100% 24px,
+        100% 100%,
+        0 100%
+      );
+      transition: all 0.3s ease;
+    }
+
+    .cyber-button {
+      position: relative;
+      background: rgba(59, 130, 246, 0.12);
+      border: 1px solid var(--cyber-accent);
+      color: #ffffff;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+      clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 0 14px var(--cyber-glow);
+    }
+    .cyber-button:hover {
+      background: var(--cyber-accent);
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 0 25px var(--cyber-accent);
+    }
+
+    .cyber-badge {
+      background: var(--cyber-badge-bg);
+      border: 1px solid var(--cyber-border);
+      clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
+      transition: all 0.2s ease;
+    }
+    .cyber-badge:hover {
+      border-color: var(--cyber-accent);
+      background: rgba(59, 130, 246, 0.2);
+      box-shadow: 0 0 10px var(--cyber-glow);
+    }
+
+    /* Glitch Typography */
+    .cyber-glitch {
+      position: relative;
+      display: inline-block;
+      text-shadow: 0 0 10px var(--cyber-glow);
+    }
+    .cyber-glitch::before, .cyber-glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      clip: rect(0, 0, 0, 0);
+    }
+    .cyber-glitch:hover::before {
+      left: -2px;
+      text-shadow: 2px 0 var(--cyber-secondary);
+      animation: glitch-anim-1 0.8s infinite linear alternate-reverse;
+    }
+    .cyber-glitch:hover::after {
+      left: 2px;
+      text-shadow: -2px 0 var(--cyber-accent-light);
+      animation: glitch-anim-2 0.8s infinite linear alternate-reverse;
+    }
+    @keyframes glitch-anim-1 {
+      0% { clip: rect(10px, 9999px, 30px, 0); }
+      50% { clip: rect(40px, 9999px, 60px, 0); }
+      100% { clip: rect(70px, 9999px, 85px, 0); }
+    }
+    @keyframes glitch-anim-2 {
+      0% { clip: rect(75px, 9999px, 90px, 0); }
+      50% { clip: rect(35px, 9999px, 55px, 0); }
+      100% { clip: rect(5px, 9999px, 25px, 0); }
+    }
+
+    /* Hologram Scanning Line */
+    .scanline-container {
+      position: relative;
+      overflow: hidden;
+    }
+    .scanline-container::after {
+      content: " ";
+      display: block;
+      position: absolute;
+      top: 0; left: 0; bottom: 0; right: 0;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+      z-index: 10;
+      background-size: 100% 3px, 6px 100%;
+      pointer-events: none;
+    }
+    .scanning-laser {
+      position: absolute;
+      top: -10%;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--cyber-accent-light), transparent);
+      box-shadow: 0 0 15px var(--cyber-accent);
+      animation: laserSweep 3.5s infinite linear;
+      pointer-events: none;
+      z-index: 20;
+    }
+    @keyframes laserSweep {
+      0% { top: -5%; opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { top: 105%; opacity: 0; }
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #070b14;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--cyber-accent-dark);
+      border-radius: 4px;
+      border: 1px solid var(--cyber-accent);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--cyber-accent);
+    }
+
+    /* Interactive Magnetic Cursor */
+    #cursor-dot {
+      pointer-events: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 6px;
+      background-color: var(--cyber-accent-light);
+      border-radius: 50%;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 10px var(--cyber-accent);
+    }
+    #cursor-hud {
+      pointer-events: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 34px;
+      height: 34px;
+      border: 1.5px dashed var(--cyber-accent);
+      border-radius: 50%;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: width 0.25s, height 0.25s, border-color 0.2s, background 0.2s;
+    }
+    .cursor-hover #cursor-hud {
+      width: 54px;
+      height: 54px;
+      border-style: solid;
+      background: var(--cyber-glow-subtle);
+    }
+  </style>
 </head>
-<body>
-  <script>window.location.href = "preview.html";</script>
+<body class="selection:bg-blue-600 selection:text-white font-sans antialiased">
+
+  <!-- Interactive Custom Cursor HUD -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-hud"></div>
+
+  <!-- Background Interactive Cyber Canvas -->
+  <canvas id="cyber-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
+
+  <!-- TOP HUD SYSTEM BAR -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#070b14]/90 backdrop-blur-md border-b border-blue-900/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-4">
+      
+      <!-- Brand & Status -->
+      <div class="flex items-center gap-3">
+        <a href="#" class="flex items-center gap-2 group">
+          <div class="w-8 h-8 rounded-full overflow-hidden border border-blue-400/70 shadow-md shadow-blue-500/30 ring-1 ring-blue-400/40">
+            <img src="yassine_avatar.jpg" alt="Yassine" class="w-full h-full object-cover">
+          </div>
+          <div class="flex flex-col">
+            <span class="font-cyber text-xs tracking-wider font-bold text-white group-hover:text-blue-400 transition-colors">YASSINE.DEV</span>
+            <span class="font-mono text-[9px] text-blue-300/70 tracking-widest uppercase">v2.4 // PFE-STAGE-2027</span>
+          </div>
+        </a>
+        <div class="hidden sm:flex items-center gap-2 px-2.5 py-1 rounded bg-blue-950/60 border border-blue-800/40 text-[11px] font-mono text-blue-300">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>SYSTEM: OPTIMAL</span>
+        </div>
+      </div>
+
+      <!-- Center Navigation Links -->
+      <nav class="hidden md:flex items-center gap-1 font-mono text-xs">
+        <a href="#hero" class="px-3 py-1.5 rounded hover:text-blue-400 hover:bg-blue-500/10 transition-colors text-slate-300">00 // Home</a>
+        <a href="#whoami" class="px-3 py-1.5 rounded hover:text-blue-400 hover:bg-blue-500/10 transition-colors text-slate-300">01 // Profile HUD</a>
+        <a href="#code-live" class="px-3 py-1.5 rounded hover:text-blue-400 hover:bg-blue-500/10 transition-colors text-slate-300">02 // Live Code</a>
+        <a href="#skills" class="px-3 py-1.5 rounded hover:text-blue-400 hover:bg-blue-500/10 transition-colors text-slate-300">03 // Arsenal</a>
+        <a href="#projects" class="px-3 py-1.5 rounded hover:text-blue-400 hover:bg-blue-500/10 transition-colors text-slate-300">04 // Archives</a>
+        <a href="#bash-terminal" class="px-3 py-1.5 rounded hover:text-blue-400 hover:bg-blue-500/10 transition-colors text-blue-400 font-semibold flex items-center gap-1">
+          <i data-lucide="terminal" class="w-3.5 h-3.5"></i>
+          05 // Bash
+        </a>
+      </nav>
+
+      <!-- Right Controls: Theme Switcher & Floating Bash Trigger -->
+      <div class="flex items-center gap-2">
+        
+        <!-- Theme Switcher Pills ("Normal Basic Color" is Electric Blue) -->
+        <div class="hidden lg:flex items-center gap-1 p-1 rounded-md bg-slate-900/80 border border-slate-800 text-[10px] font-mono">
+          <button onclick="setTheme('default')" id="theme-btn-default" class="px-2 py-0.5 rounded text-white bg-blue-600 font-bold transition-all" title="Normal Basic Color: Electric Blue">Blue</button>
+          <button onclick="setTheme('cyan')" id="theme-btn-cyan" class="px-2 py-0.5 rounded text-slate-400 hover:text-white transition-all" title="Tech Cyan">Cyan</button>
+          <button onclick="setTheme('violet')" id="theme-btn-violet" class="px-2 py-0.5 rounded text-slate-400 hover:text-white transition-all" title="Hyper Violet">Violet</button>
+          <button onclick="setTheme('mono')" id="theme-btn-mono" class="px-2 py-0.5 rounded text-slate-400 hover:text-white transition-all" title="Titanium Mono">Mono</button>
+        </div>
+
+        <!-- Terminal Quick Launcher -->
+        <button onclick="toggleFloatingTerminal()" class="cyber-button px-3 py-1 text-xs flex items-center gap-1.5" title="Toggle Floating Terminal (~ key)">
+          <i data-lucide="terminal" class="w-3.5 h-3.5"></i>
+          <span class="hidden sm:inline">bash</span>
+          <span class="px-1 py-0.2 bg-white/20 rounded text-[9px] font-mono hidden sm:inline">~</span>
+        </button>
+
+        <a href="#contact" class="hidden sm:flex items-center gap-1 px-3 py-1 rounded bg-blue-600 hover:bg-blue-500 text-white font-mono text-xs font-semibold shadow-md shadow-blue-500/30 transition-all">
+          <span>SIGNAL</span>
+          <i data-lucide="send" class="w-3 h-3"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN WRAPPER -->
+  <main class="relative z-10 pt-16">
+
+    <!-- ==================== SECTION 0: HERO (WELCOME TO YASSINE'S ARCHIVE) ==================== -->
+    <section id="hero" class="relative min-h-[85vh] flex flex-col justify-center items-center px-4 sm:px-6 py-20 text-center overflow-hidden">
+      
+      <!-- Top Diagnostic Pills -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-950/70 border border-blue-500/30 text-blue-300 font-mono text-xs mb-8 shadow-lg shadow-blue-500/10">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+        </span>
+        <span class="tracking-widest uppercase font-semibold">SECURITY PROTOCOLS VERIFIED</span>
+        <span class="text-blue-500">•</span>
+        <span>LATENCY: 14ms</span>
+        <span class="text-blue-500 hidden sm:inline">•</span>
+        <span class="hidden sm:inline">UBUNTU 24.04 LTS</span>
+      </div>
+
+      <!-- Glitch Title matching Image 3 -->
+      <h1 class="font-cyber font-black text-3xl sm:text-5xl md:text-6xl lg:text-7xl tracking-wider text-white uppercase max-w-5xl leading-tight">
+        <span class="cyber-glitch" data-text="WELCOME TO YASSINE'S ARCHIVE">WELCOME TO YASSINE'S ARCHIVE</span>
+      </h1>
+
+      <!-- Roles & Subtitles -->
+      <p class="font-mono text-xs sm:text-sm md:text-base text-blue-300 mt-6 tracking-[0.2em] uppercase font-medium flex items-center justify-center flex-wrap gap-2 sm:gap-4">
+        <span>FULL-STACK DEVELOPER</span>
+        <span class="text-blue-500">|</span>
+        <span>CLOUD SYSTEMS SPECIALIST</span>
+        <span class="text-blue-500">|</span>
+        <span class="text-emerald-400 font-bold">PFE CANDIDATE 2027</span>
+      </p>
+
+      <!-- Editorial Summary -->
+      <p class="text-slate-300 max-w-2xl mt-6 text-sm sm:text-base font-light leading-relaxed">
+        Engineering modular client-server web ecosystems (<span class="text-blue-300 font-mono">React, Vite, Node.js, Spring Boot</span>) paired with enterprise cloud supervision (<span class="text-cyan-300 font-mono">Kibana, Linux, WAF, Azure</span>). Dedicated to zero-vulnerability architectures and ultra-responsive UX.
+      </p>
+
+      <!-- Action Buttons matching Image 3 & 1 -->
+      <div class="flex flex-wrap items-center justify-center gap-4 mt-10">
+        <a href="#whoami" class="cyber-button px-6 py-3 text-sm flex items-center gap-2">
+          <i data-lucide="scan-line" class="w-4 h-4"></i>
+          <span>SCAN PROFILE</span>
+        </a>
+
+        <a href="#projects" class="px-6 py-3 rounded bg-slate-900/80 border border-blue-500/40 text-blue-200 hover:text-white hover:bg-blue-600/20 font-mono text-sm font-semibold transition-all flex items-center gap-2">
+          <i data-lucide="folder-git-2" class="w-4 h-4 text-blue-400"></i>
+          <span>ACCESS ARCHIVES</span>
+        </a>
+
+        <button onclick="scrollToTerminal()" class="px-6 py-3 rounded bg-blue-950/60 border border-blue-400/50 text-blue-300 hover:text-white hover:bg-blue-600/30 font-mono text-sm font-semibold transition-all flex items-center gap-2 shadow-lg shadow-blue-500/20">
+          <i data-lucide="terminal" class="w-4 h-4 text-cyan-400"></i>
+          <span>LAUNCH BASH</span>
+        </button>
+      </div>
+
+      <!-- Quick Scroll Indicator -->
+      <div class="mt-16 animate-bounce text-slate-500 text-xs font-mono flex flex-col items-center gap-1">
+        <span>INITIALIZING TELEMETRY</span>
+        <i data-lucide="chevron-down" class="w-4 h-4 text-blue-400"></i>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 1: WHO AM I?? HUD PROFILE CARD (Image 1) ==================== -->
+    <section id="whoami" class="py-16 px-4 sm:px-6 max-w-6xl mx-auto relative">
+      
+      <!-- HUD Card Header Tabs -->
+      <div class="flex items-center justify-between text-xs font-mono text-blue-300 mb-2">
+        <div class="flex items-center gap-2 bg-blue-950/60 border-t border-l border-r border-blue-500/40 px-3 py-1 rounded-t">
+          <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+          <span>INITIATING USER...</span>
+        </div>
+        <div class="font-cyber text-sm tracking-wider text-blue-400 font-bold hidden sm:block">
+          // WHO AM I ??
+        </div>
+        <div class="flex items-center gap-3 text-[11px] text-slate-400">
+          <span>CPU: 8 CORES</span>
+          <span>MEM: 16GB</span>
+          <span class="text-blue-400 font-mono">NODE_ENV: PROD</span>
+        </div>
+      </div>
+
+      <!-- The Main Cyber Card Container matching Image 1 -->
+      <div class="cyber-panel p-6 sm:p-8 rounded-lg relative scanline-container">
+        <div class="scanning-laser"></div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          
+          <!-- LEFT COLUMN: Avatar & System Specs & Bio -->
+          <div class="lg:col-span-5 flex flex-col justify-between space-y-6">
+            
+            <!-- Avatar Box with HUD Borders -->
+            <div class="relative rounded border border-blue-500/40 bg-slate-950/80 p-3 overflow-hidden group">
+              <div class="relative h-64 sm:h-72 w-full rounded bg-gradient-to-b from-blue-950/40 via-slate-900 to-black flex items-center justify-center overflow-hidden">
+                
+                <!-- Cyber Digital Silhouette / Tech Graphic -->
+                <div class="absolute inset-0 opacity-25 flex items-center justify-center font-mono text-[9px] text-blue-400 select-none overflow-hidden leading-tight p-2">
+                  01011001 01000001 01010011 01010011 01001001 01001110 01000101<br>
+                  BOUAZIZI // FULL-STACK WEB // CLOUD SYSTEMS // PFE 2027<br>
+                  REACT // SPRING BOOT // NODE // KIBANA // LINUX // AZURE<br>
+                  ISET SIDI BOUZID // DWM // BAC+3 // LICENSE INFORMATIQUE<br>
+                  01000100 01000101 01010110 01000101 01001100 01001111 01010000
+                </div>
+
+                <!-- Real Portrait Photo of Yassine Bouazizi -->
+                <div class="relative z-10 flex flex-col items-center">
+                  <div class="w-36 h-36 rounded-full border-2 border-blue-400/90 p-1 bg-blue-950/60 shadow-2xl shadow-blue-500/40 flex items-center justify-center overflow-hidden ring-4 ring-blue-500/20">
+                    <img src="yassine_avatar.jpg" alt="Yassine Bouazizi" class="w-full h-full object-cover filter contrast-105 brightness-105 group-hover:scale-105 transition-all duration-500">
+                  </div>
+                  <span class="mt-3 font-cyber text-sm font-bold text-white tracking-wider">YASSINE BOUAZIZI</span>
+                  <span class="font-mono text-xs text-blue-300">@yassinebouazizi-dev</span>
+                </div>
+
+                <div class="absolute top-2 left-2 text-[10px] font-mono text-blue-400 bg-blue-950/80 px-2 py-0.5 rounded border border-blue-500/30">
+                  STATUS: VERIFIED
+                </div>
+                <div class="absolute bottom-2 right-2 text-[10px] font-mono text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-500/30">
+                  AVAILABLE (FEB 2027)
+                </div>
+              </div>
+            </div>
+
+            <!-- System Spec Box: uname -a (Image 1 replica) -->
+            <div class="p-3.5 rounded bg-slate-950/90 border border-blue-500/30 font-mono text-xs space-y-1.5">
+              <div class="text-blue-400 font-bold border-b border-blue-900/50 pb-1 flex items-center justify-between">
+                <span>uname -a</span>
+                <span class="text-[10px] text-slate-400">Linux core</span>
+              </div>
+              <div class="grid grid-cols-3 gap-1 text-[11px] pt-1">
+                <span class="text-slate-400">Kernel:</span>
+                <span class="col-span-2 text-white font-semibold">6.8.0-generic</span>
+
+                <span class="text-slate-400">Hostname:</span>
+                <span class="col-span-2 text-blue-300">yassine-workstation</span>
+
+                <span class="text-slate-400">Architecture:</span>
+                <span class="col-span-2 text-white">x86_64</span>
+
+                <span class="text-slate-400">OS Build:</span>
+                <span class="col-span-2 text-cyan-300">Ubuntu 24.04 LTS</span>
+              </div>
+            </div>
+
+            <!-- Profile Summary & Bio (Image 1 replica) -->
+            <div class="space-y-3 font-mono text-xs text-slate-300">
+              <div class="text-sm font-bold text-white flex items-center gap-2">
+                <i data-lucide="terminal" class="w-4 h-4 text-blue-400"></i>
+                Hello, I am Yassine Bouazizi
+              </div>
+              <p class="leading-relaxed text-slate-400">
+                I specialize in engineering scalable web platforms, secure REST APIs (Spring Boot, Node.js), and monitoring cloud infrastructures (Kibana, Linux, WAF). With dual internship experience at <strong class="text-blue-300">VERMEG</strong> and <strong class="text-blue-300">EDDIUM PLATINUM</strong>, I deliver robust, resilient, and production-tested systems.
+              </p>
+
+              <!-- Exfiltrate Resume Action Button (Image 1 replica) -->
+              <div class="pt-2 flex flex-wrap items-center gap-3">
+                <button onclick="downloadResume()" class="cyber-button px-5 py-2.5 text-xs flex items-center gap-2 shadow-lg shadow-blue-500/25">
+                  <i data-lucide="download" class="w-4 h-4"></i>
+                  <span>EXFILTRATE RÉSUMÉ (CV)</span>
+                </button>
+
+                <!-- Social Handles -->
+                <div class="flex items-center gap-2">
+                  <a href="https://github.com/yassinebouazizi-dev" target="_blank" rel="noreferrer" class="p-2 rounded bg-slate-900 border border-slate-700 hover:border-blue-400 hover:text-blue-400 transition-colors" title="GitHub">
+                    <i data-lucide="github" class="w-4 h-4"></i>
+                  </a>
+                  <a href="mailto:bouazizi.yassine55@gmail.com" class="p-2 rounded bg-slate-900 border border-slate-700 hover:border-blue-400 hover:text-blue-400 transition-colors" title="Email">
+                    <i data-lucide="mail" class="w-4 h-4"></i>
+                  </a>
+                  <a href="tel:+21690225448" class="p-2 rounded bg-slate-900 border border-slate-700 hover:border-blue-400 hover:text-blue-400 transition-colors" title="Phone">
+                    <i data-lucide="phone" class="w-4 h-4"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- RIGHT COLUMN: Subpanel Badges, Certifications, Programming Languages & Tools -->
+          <div class="lg:col-span-7 flex flex-col justify-between space-y-6">
+            
+            <!-- Top HUD Tabs (Services / Systems / PFE 2027) -->
+            <div class="flex items-center gap-2 flex-wrap border-b border-blue-900/50 pb-3">
+              <button class="cyber-badge px-3 py-1 text-xs font-mono text-blue-300 border-blue-500 bg-blue-950/60 font-semibold">
+                [ Overview ]
+              </button>
+              <button onclick="filterWhoAmI('cloud')" class="cyber-badge px-3 py-1 text-xs font-mono text-slate-400 hover:text-white">
+                Cloud Systems & Security
+              </button>
+              <button onclick="filterWhoAmI('fullstack')" class="cyber-badge px-3 py-1 text-xs font-mono text-slate-400 hover:text-white">
+                Full-Stack Architecture
+              </button>
+              <button onclick="filterWhoAmI('pfe')" class="cyber-badge px-3 py-1 text-xs font-mono text-emerald-400 hover:text-emerald-300">
+                PFE Stage 2027
+              </button>
+            </div>
+
+            <!-- Identity Grid (Image 1 WHO AM I Table) -->
+            <div class="p-4 rounded bg-slate-950/60 border border-blue-500/20 font-mono text-xs space-y-2">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <span class="text-slate-500 block text-[10px] uppercase">User Handle:</span>
+                  <span class="text-white font-semibold">guest@yassine.dev</span>
+                </div>
+                <div>
+                  <span class="text-slate-500 block text-[10px] uppercase">Real Name:</span>
+                  <span class="text-blue-300 font-semibold">Yassine Bouazizi</span>
+                </div>
+                <div>
+                  <span class="text-slate-500 block text-[10px] uppercase">Current Role:</span>
+                  <span class="text-white font-semibold">Full-Stack Developer & Cloud Systems</span>
+                </div>
+                <div>
+                  <span class="text-slate-500 block text-[10px] uppercase">Academic Degree:</span>
+                  <span class="text-cyan-300 font-semibold">Licence Informatique (DWM) - ISET Sidi Bouzid</span>
+                </div>
+                <div>
+                  <span class="text-slate-500 block text-[10px] uppercase">Target Internship:</span>
+                  <span class="text-emerald-400 font-bold">Stage PFE (4-6 mois, Fév — Juin 2027)</span>
+                </div>
+                <div>
+                  <span class="text-slate-500 block text-[10px] uppercase">Mobility & Relocation:</span>
+                  <span class="text-white">Tunisia (National & Remote International)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Certification / Credentials Achieved (Image 1 replica) -->
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="font-cyber text-xs tracking-wider text-blue-400 font-semibold uppercase">
+                  Credentials & Certifications
+                </span>
+                <span class="text-[10px] font-mono text-slate-500">5 ACCREDITATIONS</span>
+              </div>
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                <div class="cyber-badge p-2.5 text-center text-xs font-mono text-slate-200">
+                  <div class="text-[10px] text-blue-400 font-bold">ISET SIDI BOUZID</div>
+                  <div class="font-semibold text-white">Licence DWM</div>
+                  <div class="text-[9px] text-slate-500">2024 - 2027</div>
+                </div>
+                <div class="cyber-badge p-2.5 text-center text-xs font-mono text-slate-200">
+                  <div class="text-[10px] text-cyan-400 font-bold">MICROSOFT</div>
+                  <div class="font-semibold text-white">Azure Fundamentals</div>
+                  <div class="text-[9px] text-slate-500">Cloud Operations</div>
+                </div>
+                <div class="cyber-badge p-2.5 text-center text-xs font-mono text-slate-200">
+                  <div class="text-[10px] text-emerald-400 font-bold">ELASTIC STACK</div>
+                  <div class="font-semibold text-white">Kibana Analytics</div>
+                  <div class="text-[9px] text-slate-500">VERMEG Production</div>
+                </div>
+                <div class="cyber-badge p-2.5 text-center text-xs font-mono text-slate-200">
+                  <div class="text-[10px] text-indigo-400 font-bold">SECURITY</div>
+                  <div class="font-semibold text-white">JWT & WAF Defense</div>
+                  <div class="text-[9px] text-slate-500">Perimeter Protection</div>
+                </div>
+                <div class="cyber-badge p-2.5 text-center text-xs font-mono text-slate-200 col-span-2 sm:col-span-2">
+                  <div class="text-[10px] text-amber-400 font-bold">METHODOLOGY</div>
+                  <div class="font-semibold text-white">Agile / Scrum & Git Flow</div>
+                  <div class="text-[9px] text-slate-500">Clean Code & CI/CD Discipline</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Programming Languages (Image 1 replica) -->
+            <div class="space-y-2">
+              <span class="font-cyber text-xs tracking-wider text-blue-400 font-semibold uppercase">
+                Programming Languages
+              </span>
+              <div class="flex flex-wrap gap-2">
+                <span class="cyber-badge px-3 py-1.5 text-xs font-mono text-white flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-yellow-400"></span> JavaScript (ES6+)
+                </span>
+                <span class="cyber-badge px-3 py-1.5 text-xs font-mono text-white flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-blue-500"></span> TypeScript
+                </span>
+                <span class="cyber-badge px-3 py-1.5 text-xs font-mono text-white flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-red-500"></span> Java (Spring Boot)
+                </span>
+                <span class="cyber-badge px-3 py-1.5 text-xs font-mono text-white flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-blue-400"></span> Python
+                </span>
+                <span class="cyber-badge px-3 py-1.5 text-xs font-mono text-white flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-indigo-400"></span> PHP
+                </span>
+                <span class="cyber-badge px-3 py-1.5 text-xs font-mono text-white flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-cyan-400"></span> SQL (MySQL/Postgres)
+                </span>
+                <span class="cyber-badge px-3 py-1.5 text-xs font-mono text-white flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-purple-400"></span> C / C++
+                </span>
+              </div>
+            </div>
+
+            <!-- Developer Tools (Image 1 replica) -->
+            <div class="space-y-2">
+              <span class="font-cyber text-xs tracking-wider text-blue-400 font-semibold uppercase">
+                Developer & Cloud Infrastructure Tools
+              </span>
+              <div class="flex flex-wrap gap-2">
+                <span class="cyber-badge px-3 py-1.5 text-xs font-mono text-slate-300">Linux (Ubuntu/Debian)</span>
+                <span class="cyber-badge px-3 py-1.5 text-xs font-mono text-slate-300">Docker</span>
+                <span class="cyber-badge px-3 py-1.5 text-xs font-mono text-slate-300">Kibana Analytics</span>
+                <span class="cyber-badge px-3 py-1.5 text-xs font-mono text-slate-300">Git / GitHub</span>
+                <span class="cyber-badge px-3 py-1.5 text-xs font-mono text-slate-300">Postman</span>
+                <span class="cyber-badge px-3 py-1.5 text-xs font-mono text-slate-300">VMware vSphere</span>
+                <span class="cyber-badge px-3 py-1.5 text-xs font-mono text-slate-300">VS Code</span>
+                <span class="cyber-badge px-3 py-1.5 text-xs font-mono text-slate-300">IntelliJ IDEA</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 2: LIVE CODE SYNTHESIS ENGINE (WOW EFFECT) ==================== -->
+    <section id="code-live" class="py-16 px-4 sm:px-6 max-w-6xl mx-auto relative">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 border-b border-blue-900/40 pb-4">
+        <div>
+          <div class="inline-flex items-center gap-2 text-xs font-mono text-blue-400 mb-1">
+            <span class="w-2 h-2 rounded-full bg-blue-500 animate-ping"></span>
+            <span>02 // LIVE CODE COMPILATION ENGINE</span>
+          </div>
+          <h2 class="font-cyber font-bold text-2xl sm:text-3xl text-white tracking-wide">
+            SYNTHESIZING ARCHITECTURE LIVE
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1">
+            Real-time code generation streaming right in front of your eyes with live compilation telemetry.
+          </p>
+        </div>
+
+        <!-- Code File Selectors -->
+        <div class="flex items-center gap-2">
+          <button onclick="switchLiveCode('engine')" id="tab-code-engine" class="px-3 py-1.5 rounded text-xs font-mono bg-blue-600 text-white font-bold transition-all">
+            YassineEngine.ts
+          </button>
+          <button onclick="switchLiveCode('spring')" id="tab-code-spring" class="px-3 py-1.5 rounded text-xs font-mono bg-slate-900 text-slate-400 hover:text-white transition-all">
+            ApiController.java
+          </button>
+          <button onclick="switchLiveCode('cloud')" id="tab-code-cloud" class="px-3 py-1.5 rounded text-xs font-mono bg-slate-900 text-slate-400 hover:text-white transition-all">
+            deploy-cloud.sh
+          </button>
+        </div>
+      </div>
+
+      <!-- Live Code Station Box -->
+      <div class="cyber-panel rounded-lg overflow-hidden border border-blue-500/40 bg-[#060a12] shadow-2xl shadow-blue-950/60">
+        
+        <!-- Editor Header Bar -->
+        <div class="px-4 py-2.5 bg-slate-950/90 border-b border-blue-900/40 flex items-center justify-between text-xs font-mono">
+          <div class="flex items-center gap-2">
+            <div class="flex items-center gap-1.5">
+              <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
+            </div>
+            <span class="text-slate-400 ml-2" id="active-filename">src/core/YassineEngine.ts</span>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <span class="text-[11px] text-emerald-400 flex items-center gap-1">
+              <i data-lucide="activity" class="w-3 h-3"></i>
+              STREAMING SYNTAX
+            </span>
+            <button onclick="restartLiveCode()" class="px-2 py-0.5 rounded bg-blue-950 hover:bg-blue-900 text-blue-300 text-[11px] border border-blue-700/50 flex items-center gap-1">
+              <i data-lucide="rotate-cw" class="w-3 h-3"></i>
+              Replay
+            </button>
+          </div>
+        </div>
+
+        <!-- Dynamic Typing Viewport -->
+        <div class="p-6 font-mono text-xs sm:text-sm leading-relaxed overflow-x-auto min-h-[300px] text-slate-200">
+          <pre id="live-code-output" class="whitespace-pre"></pre>
+        </div>
+
+        <!-- Compilation Progress & Simulated Live Status Bar -->
+        <div class="px-4 py-3 bg-slate-950/95 border-t border-blue-900/40 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs font-mono">
+          <div class="flex items-center gap-2 w-full sm:w-auto">
+            <span class="text-blue-400">BUILD STATUS:</span>
+            <div class="w-32 bg-slate-800 rounded-full h-2 overflow-hidden">
+              <div id="live-progress-bar" class="bg-gradient-to-r from-blue-500 to-cyan-400 h-full w-0 transition-all duration-300"></div>
+            </div>
+            <span id="live-progress-pct" class="text-blue-300 font-bold">0%</span>
+          </div>
+
+          <div class="flex items-center gap-4 text-slate-400 text-[11px]">
+            <span>TESTS: <span class="text-emerald-400 font-semibold">12 PASSING</span></span>
+            <span>BUNDLE: <span class="text-cyan-300 font-semibold">14.2 KB (GZIPPED)</span></span>
+            <span>JWT VERIFIED: <span class="text-white font-semibold">100%</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 3: MY CORE SKILLS (Image 4) ==================== -->
+    <section id="skills" class="py-16 px-4 sm:px-6 max-w-6xl mx-auto relative">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        
+        <!-- LEFT COLUMN: Circuit Trace Graphic & Editorial Headline (Image 4 replica) -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-blue-950/70 border border-blue-500/30 text-blue-300 font-mono text-xs">
+            <i data-lucide="cpu" class="w-3.5 h-3.5 text-blue-400"></i>
+            <span>03 // ARSENAL & DEFENSE</span>
+          </div>
+
+          <h2 class="font-cyber font-bold text-3xl sm:text-4xl text-white tracking-wide leading-tight">
+            MY CORE SKILLS
+          </h2>
+
+          <p class="text-slate-300 text-sm leading-relaxed font-light">
+            I apply hands-on engineering to construct secure digital architectures and optimize full-stack response times. From architecting responsive frontends in <strong class="text-blue-300">React & Next.js</strong> to hardening multi-tier REST APIs with <strong class="text-blue-300">Spring Boot & Node.js</strong>, and orchestrating log analytics via <strong class="text-cyan-300">Kibana & Linux</strong> for real-time monitoring and defense.
+          </p>
+
+          <!-- Circuit Graphic SVG matching Image 4 -->
+          <div class="p-4 rounded-lg bg-slate-950/60 border border-blue-500/20 relative overflow-hidden">
+            <svg class="w-full h-32 opacity-70" viewBox="0 0 300 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 60 H70 L90 20 H180 L200 60 H290" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4 2"/>
+              <path d="M70 60 L90 100 H160 L180 60" stroke="#06b6d4" stroke-width="2"/>
+              <circle cx="90" cy="20" r="4" fill="#60a5fa"/>
+              <circle cx="180" cy="20" r="4" fill="#60a5fa"/>
+              <circle cx="90" cy="100" r="4" fill="#38bdf8"/>
+              <circle cx="160" cy="100" r="4" fill="#38bdf8"/>
+              <circle cx="200" cy="60" r="5" fill="#3b82f6"/>
+              <text x="110" y="65" fill="#93c5fd" font-family="JetBrains Mono" font-size="10" font-weight="bold">CIRCUIT_ONLINE</text>
+            </svg>
+          </div>
+
+          <!-- Deploy Skills Button -->
+          <button onclick="scrollToTerminalWithCmd('skills')" class="cyber-button px-6 py-3 text-xs flex items-center gap-2">
+            <i data-lucide="shield-alert" class="w-4 h-4"></i>
+            <span>INSPECT STACK TELEMETRY</span>
+          </button>
+        </div>
+
+        <!-- RIGHT COLUMN: Cyber Chamfered Cards (Image 4 replica) -->
+        <div class="lg:col-span-7 space-y-6">
+          
+          <!-- Skill Card 1: Cloud, Systems & Supervision -->
+          <div class="cyber-panel p-5 rounded">
+            <div class="flex items-center justify-between border-b border-blue-900/40 pb-2 mb-3">
+              <span class="font-cyber text-xs tracking-wider text-blue-400 font-bold uppercase">
+                Cloud, Systems & IT Supervision
+              </span>
+              <span class="text-[10px] font-mono text-slate-400">VMWARE // KIBANA // AZURE</span>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+              <div class="p-2.5 rounded bg-slate-900/80 border border-slate-700/60 hover:border-blue-400 transition-all text-center">
+                <i data-lucide="bar-chart-2" class="w-5 h-5 mx-auto text-emerald-400 mb-1"></i>
+                <div class="text-xs font-mono font-bold text-white">Kibana</div>
+                <div class="text-[9px] font-mono text-slate-400">Log Analytics</div>
+              </div>
+              <div class="p-2.5 rounded bg-slate-900/80 border border-slate-700/60 hover:border-blue-400 transition-all text-center">
+                <i data-lucide="terminal" class="w-5 h-5 mx-auto text-yellow-400 mb-1"></i>
+                <div class="text-xs font-mono font-bold text-white">Linux</div>
+                <div class="text-[9px] font-mono text-slate-400">Ubuntu/Debian</div>
+              </div>
+              <div class="p-2.5 rounded bg-slate-900/80 border border-slate-700/60 hover:border-blue-400 transition-all text-center">
+                <i data-lucide="container" class="w-5 h-5 mx-auto text-cyan-400 mb-1"></i>
+                <div class="text-xs font-mono font-bold text-white">Docker</div>
+                <div class="text-[9px] font-mono text-slate-400">Containers</div>
+              </div>
+              <div class="p-2.5 rounded bg-slate-900/80 border border-slate-700/60 hover:border-blue-400 transition-all text-center">
+                <i data-lucide="cloud" class="w-5 h-5 mx-auto text-blue-400 mb-1"></i>
+                <div class="text-xs font-mono font-bold text-white">Azure</div>
+                <div class="text-[9px] font-mono text-slate-400">Fundamentals</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skill Card 2: Backend Architecture & Security -->
+          <div class="cyber-panel p-5 rounded">
+            <div class="flex items-center justify-between border-b border-blue-900/40 pb-2 mb-3">
+              <span class="font-cyber text-xs tracking-wider text-blue-400 font-bold uppercase">
+                Backend Architecture & Security
+              </span>
+              <span class="text-[10px] font-mono text-slate-400">SPRING BOOT // NODE // JWT</span>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+              <div class="p-2.5 rounded bg-slate-900/80 border border-slate-700/60 hover:border-blue-400 transition-all text-center">
+                <i data-lucide="server" class="w-5 h-5 mx-auto text-green-400 mb-1"></i>
+                <div class="text-xs font-mono font-bold text-white">Node.js</div>
+                <div class="text-[9px] font-mono text-slate-400">Express / REST</div>
+              </div>
+              <div class="p-2.5 rounded bg-slate-900/80 border border-slate-700/60 hover:border-blue-400 transition-all text-center">
+                <i data-lucide="coffee" class="w-5 h-5 mx-auto text-red-400 mb-1"></i>
+                <div class="text-xs font-mono font-bold text-white">Spring Boot</div>
+                <div class="text-[9px] font-mono text-slate-400">Java / JPA</div>
+              </div>
+              <div class="p-2.5 rounded bg-slate-900/80 border border-slate-700/60 hover:border-blue-400 transition-all text-center">
+                <i data-lucide="lock" class="w-5 h-5 mx-auto text-amber-400 mb-1"></i>
+                <div class="text-xs font-mono font-bold text-white">JWT Auth</div>
+                <div class="text-[9px] font-mono text-slate-400">Role Security</div>
+              </div>
+              <div class="p-2.5 rounded bg-slate-900/80 border border-slate-700/60 hover:border-blue-400 transition-all text-center">
+                <i data-lucide="shield-check" class="w-5 h-5 mx-auto text-blue-400 mb-1"></i>
+                <div class="text-xs font-mono font-bold text-white">WAF Defense</div>
+                <div class="text-[9px] font-mono text-slate-400">API Gateways</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skill Card 3: Web Tech & Modern Frontend -->
+          <div class="cyber-panel p-5 rounded">
+            <div class="flex items-center justify-between border-b border-blue-900/40 pb-2 mb-3">
+              <span class="font-cyber text-xs tracking-wider text-blue-400 font-bold uppercase">
+                Frontend & Interactive Engineering
+              </span>
+              <span class="text-[10px] font-mono text-slate-400">REACT // NEXT.JS // TAILWIND</span>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+              <div class="p-2.5 rounded bg-slate-900/80 border border-slate-700/60 hover:border-blue-400 transition-all text-center">
+                <i data-lucide="atom" class="w-5 h-5 mx-auto text-cyan-400 mb-1"></i>
+                <div class="text-xs font-mono font-bold text-white">React.js</div>
+                <div class="text-[9px] font-mono text-slate-400">Hooks / Context</div>
+              </div>
+              <div class="p-2.5 rounded bg-slate-900/80 border border-slate-700/60 hover:border-blue-400 transition-all text-center">
+                <i data-lucide="zap" class="w-5 h-5 mx-auto text-white mb-1"></i>
+                <div class="text-xs font-mono font-bold text-white">Next.js 14</div>
+                <div class="text-[9px] font-mono text-slate-400">App Router</div>
+              </div>
+              <div class="p-2.5 rounded bg-slate-900/80 border border-slate-700/60 hover:border-blue-400 transition-all text-center">
+                <i data-lucide="code-2" class="w-5 h-5 mx-auto text-blue-400 mb-1"></i>
+                <div class="text-xs font-mono font-bold text-white">TypeScript</div>
+                <div class="text-[9px] font-mono text-slate-400">Strict Types</div>
+              </div>
+              <div class="p-2.5 rounded bg-slate-900/80 border border-slate-700/60 hover:border-blue-400 transition-all text-center">
+                <i data-lucide="palette" class="w-5 h-5 mx-auto text-indigo-400 mb-1"></i>
+                <div class="text-xs font-mono font-bold text-white">Tailwind CSS</div>
+                <div class="text-[9px] font-mono text-slate-400">Modern Layouts</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 4: PROJECTS ARCHIVES (Images 2 & 5) ==================== -->
+    <section id="projects" class="py-16 px-4 sm:px-6 max-w-6xl mx-auto relative">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 border-b border-blue-900/40 pb-4">
+        <div>
+          <div class="inline-flex items-center gap-1.5 text-xs font-mono text-blue-400 mb-1">
+            <i data-lucide="folder-check" class="w-3.5 h-3.5"></i>
+            <span>04 // DECLASSIFIED REPOSITORIES</span>
+          </div>
+          <h2 class="font-cyber font-bold text-3xl sm:text-4xl text-white tracking-wide">
+            PROJECT ARCHIVES
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1">
+            Production ecosystems, microservices, and supervision deployments engineered by Yassine Bouazizi.
+          </p>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button onclick="filterProjects('all')" id="proj-tab-all" class="px-3 py-1 rounded text-xs font-mono bg-blue-600 text-white font-bold transition-all">All</button>
+          <button onclick="filterProjects('web')" id="proj-tab-web" class="px-3 py-1 rounded text-xs font-mono bg-slate-900 text-slate-400 hover:text-white transition-all">Web</button>
+          <button onclick="filterProjects('cloud')" id="proj-tab-cloud" class="px-3 py-1 rounded text-xs font-mono bg-slate-900 text-slate-400 hover:text-white transition-all">Cloud</button>
+          <button onclick="filterProjects('backend')" id="proj-tab-backend" class="px-3 py-1 rounded text-xs font-mono bg-slate-900 text-slate-400 hover:text-white transition-all">Backend</button>
+        </div>
+      </div>
+
+      <!-- Cyber Project Cards Grid (Images 2 & 5 replica) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
+        
+        <!-- PROJECT 1: EduPath Platform (EDDIUM Internship) -->
+        <div data-category="web" class="cyber-panel p-5 rounded flex flex-col justify-between group hover:border-blue-400 transition-all">
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono mb-2">
+              <span class="text-blue-400 font-bold tracking-wider">// 01 // EDUPATH</span>
+              <span class="text-[10px] text-slate-400 bg-blue-950 px-2 py-0.5 rounded border border-blue-900">FULL-STACK</span>
+            </div>
+
+            <h3 class="font-cyber font-bold text-lg text-white group-hover:text-blue-300 transition-colors">
+              EduPath Web Ecosystem
+            </h3>
+
+            <p class="text-xs text-blue-300/80 font-mono mt-1">
+              React.js, Vite, Node.js, Express, MySQL
+            </p>
+
+            <!-- Preview Image Mockup -->
+            <div class="relative h-40 w-full rounded mt-3 mb-4 overflow-hidden bg-slate-950 border border-slate-800">
+              <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="EduPath Platform" class="w-full h-full object-cover filter contrast-110 group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+              <div class="absolute bottom-2 left-2 text-[10px] font-mono text-emerald-300 bg-black/70 px-2 py-0.5 rounded border border-emerald-500/40">
+                JWT Auth • Sub-80ms API
+              </div>
+            </div>
+
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Academic management platform with role-based access control (RBAC), student consulting administration, relational persistence, and parameterized injection defense.
+            </p>
+          </div>
+
+          <!-- Action Buttons matching Image 2 & 5 -->
+          <div class="mt-5 pt-3 border-t border-slate-800 flex items-center justify-between gap-3 font-mono text-xs">
+            <a href="https://github.com/yassinebouazizi-dev/edupath" target="_blank" rel="noreferrer" class="px-3 py-1.5 rounded bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700 flex items-center gap-1.5 transition-colors">
+              <i data-lucide="code-2" class="w-3.5 h-3.5 text-blue-400"></i>
+              <span>Code &lt;/&gt;</span>
+            </a>
+            <button onclick="openProjectModal('edupath')" class="cyber-button px-3.5 py-1.5 text-xs flex items-center gap-1.5">
+              <span>Demo</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- PROJECT 2: VERMEG Kibana Supervision -->
+        <div data-category="cloud" class="cyber-panel p-5 rounded flex flex-col justify-between group hover:border-blue-400 transition-all">
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono mb-2">
+              <span class="text-cyan-400 font-bold tracking-wider">// 02 // LOG OPS</span>
+              <span class="text-[10px] text-slate-400 bg-blue-950 px-2 py-0.5 rounded border border-blue-900">VERMEG</span>
+            </div>
+
+            <h3 class="font-cyber font-bold text-lg text-white group-hover:text-blue-300 transition-colors">
+              Kibana Log Monitoring & WAF
+            </h3>
+
+            <p class="text-xs text-blue-300/80 font-mono mt-1">
+              Kibana, Linux, Elasticsearch, VMware, Azure
+            </p>
+
+            <div class="relative h-40 w-full rounded mt-3 mb-4 overflow-hidden bg-slate-950 border border-slate-800">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Kibana Supervision" class="w-full h-full object-cover filter contrast-110 group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+              <div class="absolute bottom-2 left-2 text-[10px] font-mono text-cyan-300 bg-black/70 px-2 py-0.5 rounded border border-cyan-500/40">
+                Log Parsing • VirtualBox • WAF
+              </div>
+            </div>
+
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Centralized infrastructure telemetry at VERMEG. Configured Linux and Windows virtualized nodes, orchestrated log ingestion pipelines, and studied perimeter web defense.
+            </p>
+          </div>
+
+          <div class="mt-5 pt-3 border-t border-slate-800 flex items-center justify-between gap-3 font-mono text-xs">
+            <a href="https://github.com/yassinebouazizi-dev" target="_blank" rel="noreferrer" class="px-3 py-1.5 rounded bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700 flex items-center gap-1.5 transition-colors">
+              <i data-lucide="code-2" class="w-3.5 h-3.5 text-blue-400"></i>
+              <span>Code &lt;/&gt;</span>
+            </a>
+            <button onclick="openProjectModal('vermeg')" class="cyber-button px-3.5 py-1.5 text-xs flex items-center gap-1.5">
+              <span>Demo</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- PROJECT 3: Enterprise Spring Boot API -->
+        <div data-category="backend" class="cyber-panel p-5 rounded flex flex-col justify-between group hover:border-blue-400 transition-all">
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono mb-2">
+              <span class="text-indigo-400 font-bold tracking-wider">// 03 // SPRING BOOT</span>
+              <span class="text-[10px] text-slate-400 bg-blue-950 px-2 py-0.5 rounded border border-blue-900">BACKEND</span>
+            </div>
+
+            <h3 class="font-cyber font-bold text-lg text-white group-hover:text-blue-300 transition-colors">
+              Multi-Tier RESTful Engine
+            </h3>
+
+            <p class="text-xs text-blue-300/80 font-mono mt-1">
+              Java, Spring Boot, Maven, JPA, JUnit 5
+            </p>
+
+            <div class="relative h-40 w-full rounded mt-3 mb-4 overflow-hidden bg-slate-950 border border-slate-800">
+              <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80" alt="Spring Boot Backend" class="w-full h-full object-cover filter contrast-110 group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+              <div class="absolute bottom-2 left-2 text-[10px] font-mono text-indigo-300 bg-black/70 px-2 py-0.5 rounded border border-indigo-500/40">
+                Layered Architecture • 100% Tests
+              </div>
+            </div>
+
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Strict multi-tier architecture (Controller-Service-Repository) featuring JPA/Hibernate ORM, global exception handling, and automated integration tests with JUnit 5.
+            </p>
+          </div>
+
+          <div class="mt-5 pt-3 border-t border-slate-800 flex items-center justify-between gap-3 font-mono text-xs">
+            <a href="https://github.com/yassinebouazizi-dev" target="_blank" rel="noreferrer" class="px-3 py-1.5 rounded bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700 flex items-center gap-1.5 transition-colors">
+              <i data-lucide="code-2" class="w-3.5 h-3.5 text-blue-400"></i>
+              <span>Code &lt;/&gt;</span>
+            </a>
+            <button onclick="openProjectModal('springboot')" class="cyber-button px-3.5 py-1.5 text-xs flex items-center gap-1.5">
+              <span>Demo</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- PROJECT 4: NutriGuard Mobile AI -->
+        <div data-category="web" class="cyber-panel p-5 rounded flex flex-col justify-between group hover:border-blue-400 transition-all">
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono mb-2">
+              <span class="text-amber-400 font-bold tracking-wider">// 04 // NUTRIGUARD</span>
+              <span class="text-[10px] text-slate-400 bg-blue-950 px-2 py-0.5 rounded border border-blue-900">MOBILE / AI</span>
+            </div>
+
+            <h3 class="font-cyber font-bold text-lg text-white group-hover:text-blue-300 transition-colors">
+              NutriGuard Health Scanner
+            </h3>
+
+            <p class="text-xs text-blue-300/80 font-mono mt-1">
+              Android, Java/Kotlin, FastAPI, Computer Vision
+            </p>
+
+            <div class="relative h-40 w-full rounded mt-3 mb-4 overflow-hidden bg-slate-950 border border-slate-800">
+              <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80" alt="NutriGuard" class="w-full h-full object-cover filter contrast-110 group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+              <div class="absolute bottom-2 left-2 text-[10px] font-mono text-amber-300 bg-black/70 px-2 py-0.5 rounded border border-amber-500/40">
+                Barcode Scanner • AI Dietary Analysis
+              </div>
+            </div>
+
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Mobile application designed for smart ingredient inspection, allergen hazard analysis, and nutritional recommendations with offline-first persistence.
+            </p>
+          </div>
+
+          <div class="mt-5 pt-3 border-t border-slate-800 flex items-center justify-between gap-3 font-mono text-xs">
+            <a href="https://github.com/yassinebouazizi-dev/NutriGuard" target="_blank" rel="noreferrer" class="px-3 py-1.5 rounded bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700 flex items-center gap-1.5 transition-colors">
+              <i data-lucide="code-2" class="w-3.5 h-3.5 text-blue-400"></i>
+              <span>Code &lt;/&gt;</span>
+            </a>
+            <button onclick="openProjectModal('nutriguard')" class="cyber-button px-3.5 py-1.5 text-xs flex items-center gap-1.5">
+              <span>Demo</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- PROJECT 5: ClipForge AI -->
+        <div data-category="backend" class="cyber-panel p-5 rounded flex flex-col justify-between group hover:border-blue-400 transition-all">
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono mb-2">
+              <span class="text-purple-400 font-bold tracking-wider">// 05 // CLIPFORGE</span>
+              <span class="text-[10px] text-slate-400 bg-blue-950 px-2 py-0.5 rounded border border-blue-900">AI / MEDIA</span>
+            </div>
+
+            <h3 class="font-cyber font-bold text-lg text-white group-hover:text-blue-300 transition-colors">
+              ClipForge Video Engine
+            </h3>
+
+            <p class="text-xs text-blue-300/80 font-mono mt-1">
+              Next.js 14, TypeScript, Docker, REST Microservices
+            </p>
+
+            <div class="relative h-40 w-full rounded mt-3 mb-4 overflow-hidden bg-slate-950 border border-slate-800">
+              <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="ClipForge" class="w-full h-full object-cover filter contrast-110 group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+              <div class="absolute bottom-2 left-2 text-[10px] font-mono text-purple-300 bg-black/70 px-2 py-0.5 rounded border border-purple-500/40">
+                Async Media Pipeline • Docker
+              </div>
+            </div>
+
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Automated video restructuring platform featuring asynchronous microservice worker queues, custom rendering pipelines, and dynamic social media reformatting.
+            </p>
+          </div>
+
+          <div class="mt-5 pt-3 border-t border-slate-800 flex items-center justify-between gap-3 font-mono text-xs">
+            <a href="https://github.com/yassinebouazizi-dev/clipforge-ai" target="_blank" rel="noreferrer" class="px-3 py-1.5 rounded bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700 flex items-center gap-1.5 transition-colors">
+              <i data-lucide="code-2" class="w-3.5 h-3.5 text-blue-400"></i>
+              <span>Code &lt;/&gt;</span>
+            </a>
+            <button onclick="openProjectModal('clipforge')" class="cyber-button px-3.5 py-1.5 text-xs flex items-center gap-1.5">
+              <span>Demo</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- PROJECT 6: Interactive Telemetry Dashboards -->
+        <div data-category="cloud" class="cyber-panel p-5 rounded flex flex-col justify-between group hover:border-blue-400 transition-all">
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono mb-2">
+              <span class="text-emerald-400 font-bold tracking-wider">// 06 // ANALYTICS</span>
+              <span class="text-[10px] text-slate-400 bg-blue-950 px-2 py-0.5 rounded border border-blue-900">SYSTEMS</span>
+            </div>
+
+            <h3 class="font-cyber font-bold text-lg text-white group-hover:text-blue-300 transition-colors">
+              Interactive Analytics Dashboard
+            </h3>
+
+            <p class="text-xs text-blue-300/80 font-mono mt-1">
+              JavaScript (ES6+), Chart.js, REST APIs, Postman
+            </p>
+
+            <div class="relative h-40 w-full rounded mt-3 mb-4 overflow-hidden bg-slate-950 border border-slate-800">
+              <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=800&q=80" alt="Telemetry" class="w-full h-full object-cover filter contrast-110 group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+              <div class="absolute bottom-2 left-2 text-[10px] font-mono text-emerald-300 bg-black/70 px-2 py-0.5 rounded border border-emerald-500/40">
+                Real-Time Telemetry • Postman Testing
+              </div>
+            </div>
+
+            <p class="text-xs text-slate-400 leading-relaxed">
+              High-frequency metrics visualization platform with live data polling, custom trend indicators, and automated test collections structured in Postman.
+            </p>
+          </div>
+
+          <div class="mt-5 pt-3 border-t border-slate-800 flex items-center justify-between gap-3 font-mono text-xs">
+            <a href="https://github.com/yassinebouazizi-dev" target="_blank" rel="noreferrer" class="px-3 py-1.5 rounded bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700 flex items-center gap-1.5 transition-colors">
+              <i data-lucide="code-2" class="w-3.5 h-3.5 text-blue-400"></i>
+              <span>Code &lt;/&gt;</span>
+            </a>
+            <button onclick="openProjectModal('dashboard')" class="cyber-button px-3.5 py-1.5 text-xs flex items-center gap-1.5">
+              <span>Demo</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 5: THE BASH TERMINAL ("FINAL CAP") (Image 7) ==================== -->
+    <section id="bash-terminal" class="py-16 px-4 sm:px-6 max-w-4xl mx-auto relative">
+      <div class="text-center mb-8">
+        <div class="inline-flex items-center gap-2 text-xs font-mono text-cyan-400 mb-2">
+          <i data-lucide="terminal" class="w-4 h-4"></i>
+          <span>05 // THE FINAL CAPSTONE • INTERACTIVE LINUX CONSOLE</span>
+        </div>
+        <h2 class="font-cyber font-bold text-2xl sm:text-4xl text-white tracking-wide">
+          BASH COMMAND INTERFACE
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-2 max-w-xl mx-auto">
+          Type commands directly into the terminal or click the command badges below to inspect PFE dates, verify contact details, or switch themes.
+        </p>
+
+        <!-- Command Shortcuts Pills -->
+        <div class="flex items-center justify-center flex-wrap gap-2 mt-4 font-mono text-xs">
+          <span class="text-slate-500 text-[11px]">Quick Triggers:</span>
+          <button onclick="runTerminalCmd('contact')" class="px-2.5 py-1 rounded bg-slate-900 border border-slate-700 hover:border-blue-400 text-blue-300 hover:text-white transition-all">contact</button>
+          <button onclick="runTerminalCmd('help')" class="px-2.5 py-1 rounded bg-slate-900 border border-slate-700 hover:border-blue-400 text-yellow-300 hover:text-white transition-all">help</button>
+          <button onclick="runTerminalCmd('pfe')" class="px-2.5 py-1 rounded bg-slate-900 border border-slate-700 hover:border-blue-400 text-emerald-300 hover:text-white transition-all">pfe</button>
+          <button onclick="runTerminalCmd('projects')" class="px-2.5 py-1 rounded bg-slate-900 border border-slate-700 hover:border-blue-400 text-cyan-300 hover:text-white transition-all">projects</button>
+          <button onclick="runTerminalCmd('skills')" class="px-2.5 py-1 rounded bg-slate-900 border border-slate-700 hover:border-blue-400 text-indigo-300 hover:text-white transition-all">skills</button>
+          <button onclick="runTerminalCmd('experience')" class="px-2.5 py-1 rounded bg-slate-900 border border-slate-700 hover:border-blue-400 text-pink-300 hover:text-white transition-all">experience</button>
+          <button onclick="runTerminalCmd('clear')" class="px-2.5 py-1 rounded bg-slate-900 border border-slate-700 hover:border-red-400 text-slate-400 hover:text-red-300 transition-all">clear</button>
+        </div>
+      </div>
+
+      <!-- The Real macOS/Linux Bash Window exactly matching Image 7 -->
+      <div class="rounded-xl overflow-hidden border border-slate-800 bg-[#0d1117] shadow-2xl shadow-black/80 font-mono text-xs sm:text-sm">
+        
+        <!-- Terminal Title Bar matching Image 7 -->
+        <div class="px-4 py-3 bg-[#161b22] border-b border-slate-800 flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-[#ff5f56] inline-block cursor-pointer" onclick="runTerminalCmd('clear')" title="Clear"></span>
+            <span class="w-3 h-3 rounded-full bg-[#ffbd2e] inline-block cursor-pointer" onclick="runTerminalCmd('help')" title="Help"></span>
+            <span class="w-3 h-3 rounded-full bg-[#27c93f] inline-block cursor-pointer" onclick="toggleFloatingTerminal()" title="Pop out"></span>
+            <span class="text-slate-400 text-xs ml-2 select-none">&gt;_ yassine@portfolio:~ (bash)</span>
+          </div>
+
+          <div class="flex items-center gap-3 text-slate-500 text-xs">
+            <span class="hidden sm:inline">bash 5.2.21</span>
+            <button onclick="runTerminalCmd('clear')" class="hover:text-slate-300" title="Clear buffer">
+              <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Terminal Output Screen matching Image 7 content -->
+        <div id="bash-output" class="p-6 space-y-4 max-h-[460px] overflow-y-auto leading-relaxed select-text">
+          
+          <!-- Image 7 contact prompt output -->
+          <div>
+            <div class="flex items-center gap-2 text-emerald-400 font-semibold">
+              <span class="text-cyan-400">guest@yassine:~$</span>
+              <span class="text-white">contact</span>
+            </div>
+            <div class="mt-2 pl-4 space-y-1 text-slate-300">
+              <p>• <span class="font-bold text-white">Email:</span> <a href="mailto:bouazizi.yassine55@gmail.com" class="text-blue-400 underline hover:text-blue-300">bouazizi.yassine55@gmail.com</a></p>
+              <p>• <span class="font-bold text-white">Phone:</span> <a href="tel:+21690225448" class="text-blue-400 underline hover:text-blue-300">+216 90 225 448</a></p>
+              <p>• <span class="font-bold text-white">GitHub:</span> <a href="https://github.com/yassinebouazizi-dev" target="_blank" rel="noreferrer" class="text-blue-400 underline hover:text-blue-300">https://github.com/yassinebouazizi-dev</a></p>
+              <p>• <span class="font-bold text-white">Location:</span> Tunisia (Available for Remote & Relocation)</p>
+            </div>
+          </div>
+
+          <!-- Image 7 help prompt output -->
+          <div>
+            <div class="flex items-center gap-2 text-emerald-400 font-semibold">
+              <span class="text-cyan-400">guest@yassine:~$</span>
+              <span class="text-white">help</span>
+            </div>
+            <div class="mt-2 pl-4 space-y-1 text-slate-300">
+              <p class="text-cyan-400 font-bold mb-1">Available commands:</p>
+              <p><span class="text-yellow-400 w-28 inline-block">pfe</span> - PFE Internship specifics & dates</p>
+              <p><span class="text-yellow-400 w-28 inline-block">projects</span> - View significant projects & GitHub links</p>
+              <p><span class="text-yellow-400 w-28 inline-block">skills</span> - List full technical stack</p>
+              <p><span class="text-yellow-400 w-28 inline-block">experience</span> - View internships (Eddium, Vermeg)</p>
+              <p><span class="text-yellow-400 w-28 inline-block">contact</span> - Show email, phone & social handles</p>
+              <p><span class="text-yellow-400 w-28 inline-block">clear</span> - Clear terminal window</p>
+              <p><span class="text-yellow-400 w-28 inline-block">exit</span> - Close terminal</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Terminal Interactive Input Prompt -->
+        <div class="px-6 py-4 bg-[#0a0d13] border-t border-slate-800 flex items-center gap-2">
+          <span class="text-cyan-400 font-semibold shrink-0">guest@yassine:~$</span>
+          <input 
+            type="text" 
+            id="bash-input" 
+            class="flex-1 bg-transparent text-white font-mono text-xs sm:text-sm focus:outline-none placeholder-slate-600" 
+            placeholder="type 'help', 'pfe', 'projects'..." 
+            autocomplete="off" 
+            spellcheck="false"
+          >
+          <button onclick="submitBashInput()" class="px-3 py-1 rounded bg-blue-600/80 hover:bg-blue-500 text-white text-xs font-mono font-semibold transition-colors">
+            Enter ↵
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 6: GET IN TOUCH (Image 6) ==================== -->
+    <section id="contact" class="py-16 px-4 sm:px-6 max-w-4xl mx-auto relative">
+      <div class="text-center mb-8">
+        <div class="inline-flex items-center gap-1.5 text-xs font-mono text-blue-400 mb-1">
+          <i data-lucide="radio" class="w-4 h-4"></i>
+          <span>06 // TRANSMIT PACKET</span>
+        </div>
+        <h2 class="font-cyber font-bold text-3xl sm:text-4xl text-white tracking-wide">
+          GET IN TOUCH
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-2">
+          Have questions or need assistance? I'm here to help you with any projects or PFE opportunities.
+        </p>
+      </div>
+
+      <!-- Cyber Form Panel matching Image 6 -->
+      <div class="cyber-panel p-6 sm:p-8 rounded-lg max-w-xl mx-auto bg-slate-950/80 border border-blue-500/30">
+        <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-4 font-mono text-xs">
+          
+          <!-- Name Field -->
+          <div>
+            <label class="block text-slate-300 mb-1.5 font-semibold">Name*</label>
+            <input 
+              type="text" 
+              id="form-name" 
+              required 
+              placeholder="e.g. Jean Dupont" 
+              class="w-full px-4 py-2.5 rounded bg-slate-900 border border-slate-700 focus:border-blue-500 focus:outline-none text-white text-xs transition-colors"
+            >
+          </div>
+
+          <!-- Email Field -->
+          <div>
+            <label class="block text-slate-300 mb-1.5 font-semibold">Email Address*</label>
+            <input 
+              type="email" 
+              id="form-email" 
+              required 
+              placeholder="recruiter@enterprise.com" 
+              class="w-full px-4 py-2.5 rounded bg-slate-900 border border-slate-700 focus:border-blue-500 focus:outline-none text-white text-xs transition-colors"
+            >
+          </div>
+
+          <!-- Message Field -->
+          <div>
+            <label class="block text-slate-300 mb-1.5 font-semibold">Message*</label>
+            <textarea 
+              id="form-message" 
+              rows="4" 
+              required 
+              placeholder="There is space for your concerns or interview invitations here..." 
+              class="w-full px-4 py-2.5 rounded bg-slate-900 border border-slate-700 focus:border-blue-500 focus:outline-none text-white text-xs transition-colors resize-none"
+            ></textarea>
+          </div>
+
+          <!-- Consent Checkbox matching Image 6 -->
+          <div class="flex items-start gap-2 pt-1 text-slate-400 text-[11px]">
+            <input type="checkbox" id="form-consent" required class="mt-0.5 rounded bg-slate-900 border-slate-700 text-blue-600 focus:ring-0">
+            <label for="form-consent" class="cursor-pointer">
+              I acknowledge and consent to the transmission and storage of my submitted information.
+            </label>
+          </div>
+
+          <!-- Submit Button matching Image 6 -->
+          <div class="pt-3">
+            <button type="submit" id="form-submit-btn" class="cyber-button w-full py-3 text-xs flex items-center justify-center gap-2 shadow-lg shadow-blue-500/25">
+              <i data-lucide="send" class="w-4 h-4"></i>
+              <span>SUBMIT SIGNAL</span>
+            </button>
+          </div>
+
+          <!-- Real-Time Transmission Terminal Log Feedback -->
+          <div id="contact-log" class="hidden mt-4 p-3 rounded bg-black/90 border border-blue-500/40 text-[11px] text-blue-300 font-mono space-y-1"></div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER (Image 6 replica) ==================== -->
+  <footer class="relative z-10 border-t border-blue-900/40 bg-[#050811] py-12 px-4 sm:px-6">
+    <div class="max-w-6xl mx-auto flex flex-col items-center justify-center text-center space-y-6">
+      
+      <!-- Brand Logo -->
+      <div class="flex items-center gap-2">
+        <div class="w-7 h-7 rounded bg-blue-600 flex items-center justify-center font-cyber font-bold text-xs text-white">
+          YB
+        </div>
+        <span class="font-cyber font-bold text-sm tracking-wider text-white">YASSINE BOUAZIZI</span>
+      </div>
+
+      <!-- Quick Nav Links -->
+      <div class="flex flex-wrap items-center justify-center gap-6 text-xs font-mono text-slate-400">
+        <a href="#hero" class="hover:text-blue-400 transition-colors">About</a>
+        <a href="#skills" class="hover:text-blue-400 transition-colors">Skills</a>
+        <a href="#projects" class="hover:text-blue-400 transition-colors">Projects</a>
+        <a href="#bash-terminal" class="hover:text-blue-400 transition-colors">Bash Console</a>
+        <a href="#contact" class="hover:text-blue-400 transition-colors">Contact</a>
+      </div>
+
+      <!-- Social Media Icons matching Image 6 -->
+      <div class="flex items-center justify-center gap-3">
+        <a href="https://github.com/yassinebouazizi-dev" target="_blank" rel="noreferrer" class="w-9 h-9 rounded-full bg-slate-900 border border-slate-700 hover:border-blue-400 flex items-center justify-center text-blue-300 hover:text-white transition-all shadow-md shadow-blue-500/10">
+          <i data-lucide="github" class="w-4 h-4"></i>
+        </a>
+        <a href="mailto:bouazizi.yassine55@gmail.com" class="w-9 h-9 rounded-full bg-slate-900 border border-slate-700 hover:border-blue-400 flex items-center justify-center text-cyan-300 hover:text-white transition-all shadow-md shadow-blue-500/10">
+          <i data-lucide="mail" class="w-4 h-4"></i>
+        </a>
+        <a href="tel:+21690225448" class="w-9 h-9 rounded-full bg-slate-900 border border-slate-700 hover:border-blue-400 flex items-center justify-center text-emerald-300 hover:text-white transition-all shadow-md shadow-blue-500/10">
+          <i data-lucide="phone" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+      <!-- Digital Equalizer / Audio Frequency Wave Graphic matching Image 6 -->
+      <div class="w-full max-w-md h-8 flex items-end justify-center gap-1 opacity-40">
+        <div class="w-1 bg-blue-500 h-2 animate-pulse"></div>
+        <div class="w-1 bg-blue-500 h-4 animate-pulse"></div>
+        <div class="w-1 bg-cyan-400 h-6 animate-pulse"></div>
+        <div class="w-1 bg-blue-500 h-3 animate-pulse"></div>
+        <div class="w-1 bg-blue-400 h-7 animate-pulse"></div>
+        <div class="w-1 bg-cyan-300 h-5 animate-pulse"></div>
+        <div class="w-1 bg-blue-500 h-2 animate-pulse"></div>
+        <div class="w-1 bg-blue-600 h-6 animate-pulse"></div>
+        <div class="w-1 bg-cyan-400 h-8 animate-pulse"></div>
+        <div class="w-1 bg-blue-500 h-4 animate-pulse"></div>
+        <div class="w-1 bg-blue-400 h-3 animate-pulse"></div>
+      </div>
+
+      <!-- Copyright Notice -->
+      <div class="font-mono text-xs text-slate-500">
+        Copyright © 2026 Yassine Bouazizi. All Rights Reserved. Engineered with Cyber HUD Architecture.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== FLOATING BASH MODAL (DRAGGABLE / POP-OUT) ==================== -->
+  <div id="floating-terminal-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
+    <div class="relative w-full max-w-2xl rounded-xl overflow-hidden border border-blue-500/50 bg-[#0d1117] shadow-2xl shadow-blue-950/80 font-mono text-xs sm:text-sm">
+      
+      <!-- Modal Title Bar -->
+      <div class="px-4 py-3 bg-[#161b22] border-b border-slate-800 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full bg-[#ff5f56] inline-block cursor-pointer" onclick="toggleFloatingTerminal()" title="Close"></span>
+          <span class="w-3 h-3 rounded-full bg-[#ffbd2e] inline-block cursor-pointer" onclick="runFloatingCmd('help')" title="Help"></span>
+          <span class="w-3 h-3 rounded-full bg-[#27c93f] inline-block cursor-pointer" onclick="runFloatingCmd('pfe')" title="PFE"></span>
+          <span class="text-slate-300 text-xs ml-2 select-none">&gt;_ yassine@portfolio:~ (bash)</span>
+        </div>
+        <button onclick="toggleFloatingTerminal()" class="text-slate-400 hover:text-white">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Modal Output Body -->
+      <div id="floating-bash-output" class="p-6 space-y-3 max-h-[360px] overflow-y-auto leading-relaxed select-text">
+        <div class="text-slate-300 space-y-1">
+          <p class="text-blue-400 font-bold">⚡ Floating Recruiter Shell v2.4 (Ubuntu 24.04 LTS)</p>
+          <p class="text-slate-400 text-xs">Type <span class="text-yellow-400">help</span> for all available commands or <span class="text-emerald-400">pfe</span> for internship dates.</p>
+        </div>
+      </div>
+
+      <!-- Modal Input -->
+      <div class="px-6 py-3.5 bg-[#0a0d13] border-t border-slate-800 flex items-center gap-2">
+        <span class="text-cyan-400 font-semibold shrink-0">guest@yassine:~$</span>
+        <input 
+          type="text" 
+          id="floating-bash-input" 
+          class="flex-1 bg-transparent text-white font-mono text-xs focus:outline-none" 
+          placeholder="type 'help', 'pfe', 'contact'..."
+          autocomplete="off"
+        >
+        <button onclick="submitFloatingInput()" class="px-2.5 py-1 rounded bg-blue-600 hover:bg-blue-500 text-white text-xs font-mono">
+          Run ↵
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== PROJECT DETAILS MODAL ==================== -->
+  <div id="project-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+    <div class="relative w-full max-w-2xl cyber-panel p-6 sm:p-8 rounded-xl bg-slate-950 border border-blue-500/50 text-white font-mono">
+      <button onclick="closeProjectModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div id="project-modal-content">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== JAVASCRIPT CONTROLLERS ==================== -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // 1. THEME SWITCHER CONTROLLER ("Normal Basic Color" is default Electric Blue)
+    function setTheme(theme) {
+      document.body.removeAttribute('data-theme');
+      if (theme !== 'default') {
+        document.body.setAttribute('data-theme', theme);
+      }
+      
+      // Update button styles
+      ['default', 'cyan', 'violet', 'mono'].forEach(t => {
+        const btn = document.getElementById(`theme-btn-${t}`);
+        if (btn) {
+          if (t === theme) {
+            btn.className = "px-2 py-0.5 rounded text-white bg-blue-600 font-bold transition-all";
+          } else {
+            btn.className = "px-2 py-0.5 rounded text-slate-400 hover:text-white transition-all";
+          }
+        }
+      });
+    }
+
+    // 2. LIVE CODE CREATION ENGINE (Typing in front of user with syntax simulation)
+    const CODE_SNIPPETS = {
+      engine: `/**
+ * @file YassineEngine.ts
+ * @author Yassine Bouazizi <bouazizi.yassine55@gmail.com>
+ * @description Core Full-Stack & Cloud Architecture Definition
+ */
+
+import { FullStackDeveloper, CloudSupervisor } from '@yassine/core';
+import { SecurityPerimeter, DatabaseCluster } from '@yassine/systems';
+
+export class YassineEngine extends FullStackDeveloper {
+  public readonly candidate = "Yassine Bouazizi";
+  public readonly education = "Licence Informatique (DWM) - ISET Sidi Bouzid";
+  public readonly targetInternship = "PFE Stage (Feb - Jun 2027)";
+
+  public async bootstrap(): Promise<void> {
+    // Step 1: Initializing Multi-Tier API Gateway & Security
+    const firewall = new SecurityPerimeter({
+      authScheme: "JWT (JSON Web Tokens)",
+      wafActive: true,
+      defenseLayer: "Strict Parameterized Queries"
+    });
+
+    // Step 2: Ingesting Real-Time Kibana Telemetry (VERMEG Protocol)
+    const monitoring = new CloudSupervisor({
+      platform: "Elastic / Kibana Stack",
+      virtualCluster: ["Ubuntu 24.04 LTS", "Windows Server", "VMware"],
+      anomalyAlerts: "ACTIVE"
+    });
+
+    await firewall.verifyIntegrity();
+    console.log(">> STATUS 200: Architecture Ready for Deployment");
+  }
+}`,
+      spring: `package com.yassine.academic.api;
+
+import org.springframework.web.bind.annotation.*;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+
+/**
+ * Enterprise Academic & Student Resource Controller
+ * Layered Clean Architecture (Controller -> Service -> Repository)
+ */
+@RestController
+@RequestMapping("/api/v1/students")
+@CrossOrigin(origins = "https://yassinebouazizi.dev")
+public class StudentManagementController {
+
+    private final StudentService studentService;
+
+    public StudentManagementController(StudentService studentService) {
+        this.studentService = studentService;
+    }
+
+    @GetMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('INSTRUCTOR')")
+    public ResponseEntity<StudentResponseDTO> getStudentProfile(@PathVariable Long id) {
+        StudentResponseDTO response = studentService.findAndVerifyStudent(id);
+        return ResponseEntity.ok(response);
+    }
+}`,
+      cloud: `#!/bin/bash
+# ====================================================================
+# Cloud & Container Deployment Script - Yassine Bouazizi
+# Environment: Linux Ubuntu 24.04 LTS // Kibana Supervision Node
+# ====================================================================
+
+echo "[INIT] Deploying Virtualized Microservice Cluster..."
+docker compose -f ./docker-compose.prod.yml up -d --build
+
+echo "[INFO] Verifying Elasticsearch & Kibana Telemetry Pipelines..."
+curl -s -o /dev/null -w "%{http_code}" http://localhost:5601/api/status | grep "200"
+
+if [ $? -eq 0 ]; then
+  echo "[OK] Kibana Dashboard ONLINE at port 5601"
+  echo "[OK] WAF Perimeter Rules Engaged"
+  echo "[STATUS] PFE Stage System Fully Operational."
+fi`
+    };
+
+    let activeSnippetKey = 'engine';
+    let typingInterval = null;
+
+    function startLiveCodeTyping(text) {
+      if (typingInterval) clearInterval(typingInterval);
+      const outputElem = document.getElementById('live-code-output');
+      const progressBar = document.getElementById('live-progress-bar');
+      const progressPct = document.getElementById('live-progress-pct');
+      outputElem.textContent = '';
+      
+      let index = 0;
+      const speed = 15; // ms per chunk
+      const chunkSize = 3; // chars per tick for smooth streaming
+
+      typingInterval = setInterval(() => {
+        if (index < text.length) {
+          const nextIndex = Math.min(index + chunkSize, text.length);
+          outputElem.textContent += text.slice(index, nextIndex);
+          index = nextIndex;
+          
+          const pct = Math.floor((index / text.length) * 100);
+          progressBar.style.width = pct + '%';
+          progressPct.textContent = pct + '%';
+        } else {
+          clearInterval(typingInterval);
+          progressBar.style.width = '100%';
+          progressPct.textContent = '100%';
+        }
+      }, speed);
+    }
+
+    function switchLiveCode(key) {
+      activeSnippetKey = key;
+      const filenames = {
+        engine: 'src/core/YassineEngine.ts',
+        spring: 'src/main/java/StudentManagementController.java',
+        cloud: 'scripts/deploy-cloud.sh'
+      };
+      document.getElementById('active-filename').textContent = filenames[key];
+
+      // Tab button states
+      ['engine', 'spring', 'cloud'].forEach(k => {
+        const btn = document.getElementById(`tab-code-${k}`);
+        if (btn) {
+          if (k === key) {
+            btn.className = "px-3 py-1.5 rounded text-xs font-mono bg-blue-600 text-white font-bold transition-all";
+          } else {
+            btn.className = "px-3 py-1.5 rounded text-xs font-mono bg-slate-900 text-slate-400 hover:text-white transition-all";
+          }
+        }
+      });
+
+      startLiveCodeTyping(CODE_SNIPPETS[key]);
+    }
+
+    function restartLiveCode() {
+      startLiveCodeTyping(CODE_SNIPPETS[activeSnippetKey]);
+    }
+
+    // 3. BASH TERMINAL ENGINE (Matching Image 7 commands)
+    const TERMINAL_COMMANDS = {
+      help: `
+Available commands:
+  <span class="text-yellow-400 font-bold">pfe</span>          - PFE Internship specifics & dates
+  <span class="text-yellow-400 font-bold">projects</span>     - View significant projects & GitHub links
+  <span class="text-yellow-400 font-bold">skills</span>       - List full technical stack
+  <span class="text-yellow-400 font-bold">experience</span>   - View internships (Eddium, Vermeg)
+  <span class="text-yellow-400 font-bold">contact</span>      - Show email, phone & social handles
+  <span class="text-yellow-400 font-bold">whoami</span>       - Display developer credentials & identity
+  <span class="text-yellow-400 font-bold">theme &lt;name&gt;</span>  - Switch website theme (blue, cyan, violet, mono)
+  <span class="text-yellow-400 font-bold">resume</span>       - Trigger CV download
+  <span class="text-yellow-400 font-bold">clear</span>        - Clear terminal window
+  <span class="text-yellow-400 font-bold">exit</span>         - Close terminal
+`,
+      contact: `
+• <span class="font-bold text-white">Email:</span> <a href="mailto:bouazizi.yassine55@gmail.com" class="text-blue-400 underline">bouazizi.yassine55@gmail.com</a>
+• <span class="font-bold text-white">Phone:</span> <a href="tel:+21690225448" class="text-blue-400 underline">+216 90 225 448</a>
+• <span class="font-bold text-white">GitHub:</span> <a href="https://github.com/yassinebouazizi-dev" target="_blank" class="text-blue-400 underline">https://github.com/yassinebouazizi-dev</a>
+• <span class="font-bold text-white">Location:</span> Tunisia (Available for Remote & Relocation)
+`,
+      pfe: `
+<span class="text-emerald-400 font-bold">🎯 STAGE PFE (PROJET DE FIN D'ÉTUDES) 2027 DETAILS:</span>
+• <strong class="text-white">Degree:</strong> Licence en Technologies de l'Informatique (DWM) - ISET Sidi Bouzid
+• <strong class="text-white">Period:</strong> February 2027 to June/July 2027 (4 to 6 months)
+• <strong class="text-white">Focus:</strong> Full-Stack Web Architecture, Cloud Systems, Secure Microservices
+• <strong class="text-white">Mobility:</strong> National (Tunisia) & International Remote
+• <strong class="text-white">Contact:</strong> <a href="mailto:bouazizi.yassine55@gmail.com" class="text-blue-400 underline">bouazizi.yassine55@gmail.com</a>
+`,
+      projects: `
+<span class="text-cyan-400 font-bold">DECLASSIFIED WORK ARCHIVES:</span>
+1. <strong class="text-white">EduPath Platform:</strong> Academic & Student Management (React, Node, Express, MySQL, JWT)
+   URL: https://github.com/yassinebouazizi-dev/edupath
+2. <strong class="text-white">Kibana Log Operations:</strong> Centralized IT Supervision at VERMEG (Linux, Kibana, WAF)
+3. <strong class="text-white">Enterprise REST API:</strong> Layered Academic Microservice (Java, Spring Boot, JPA, JUnit 5)
+4. <strong class="text-white">NutriGuard AI:</strong> Mobile Dietary Health Scanner (Android, FastAPI, Vision)
+   URL: https://github.com/yassinebouazizi-dev/NutriGuard
+5. <strong class="text-white">ClipForge AI:</strong> Media Repurposing Pipeline (Next.js 14, Docker, Microservices)
+`,
+      skills: `
+<span class="text-indigo-400 font-bold">CORE ARSENAL & PROFICIENCIES:</span>
+• <strong class="text-white">Frontend:</strong> React.js, Next.js 14, Vite, TypeScript, JavaScript (ES6+), Tailwind CSS
+• <strong class="text-white">Backend:</strong> Node.js, Express.js, Java (Spring Boot), PHP, RESTful APIs, Clean MVC
+• <strong class="text-white">Databases:</strong> MySQL, PostgreSQL, JPA/Hibernate, Merise / UML
+• <strong class="text-white">Cloud & DevOps:</strong> Linux (Ubuntu/Debian), Docker, Microsoft Azure Fundamentals, Git
+• <strong class="text-white">Monitoring & Security:</strong> Kibana (Elastic Stack), WAF, API Gateway, JWT Auth, Postman
+`,
+      experience: `
+<span class="text-pink-400 font-bold">VERIFIED PRODUCTION INTERNSHIPS:</span>
+1. <strong class="text-white">EDDIUM PLATINUM</strong> (August 2026) - Stagiaire Développeur Full-Stack Web
+   • Engineered the client-server architecture of EduPath with React.js, Vite & Node.js/Express.
+   • Developed JWT-secured REST APIs connected to MySQL relational schemas.
+2. <strong class="text-white">VERMEG</strong> (January 2025) - Stagiaire Systèmes, Virtualisation & Supervision IT
+   • Deployed virtualized Linux & Windows clusters in Oracle VirtualBox and VMware vSphere.
+   • Structured log ingestion pipelines and analytical dashboards in Kibana (Elastic Stack).
+`,
+      whoami: `
+<span class="text-blue-400 font-bold">IDENTITY RECORD:</span>
+• Name: Yassine Bouazizi
+• Role: Full-Stack Developer & Cloud Systems Specialist
+• Education: 3rd year Computer Science (DWM) - ISET Sidi Bouzid
+• Host: Linux yassine-workstation 6.8.0-generic x86_64
+• Availability: Immediate for PFE 2027 Interviews
+`
+    };
+
+    function executeCommand(rawCmd, targetOutputId) {
+      const outputElem = document.getElementById(targetOutputId);
+      const cleanCmd = rawCmd.trim().toLowerCase();
+
+      if (cleanCmd === 'clear') {
+        outputElem.innerHTML = '';
+        return;
+      }
+
+      // Append prompt
+      const cmdLine = document.createElement('div');
+      cmdLine.innerHTML = `
+        <div class="flex items-center gap-2 text-emerald-400 font-semibold mt-3">
+          <span class="text-cyan-400">guest@yassine:~$</span>
+          <span class="text-white">${rawCmd}</span>
+        </div>
+      `;
+      outputElem.appendChild(cmdLine);
+
+      // Handle Theme Switch via Terminal
+      if (cleanCmd.startsWith('theme')) {
+        const parts = cleanCmd.split(' ');
+        const themeName = parts[1];
+        if (['default', 'blue', 'cyan', 'violet', 'mono'].includes(themeName)) {
+          const mappedTheme = themeName === 'blue' ? 'default' : themeName;
+          setTheme(mappedTheme);
+          const responseDiv = document.createElement('div');
+          responseDiv.className = "mt-1 pl-4 text-emerald-400";
+          responseDiv.innerHTML = `[OK] Theme successfully switched to: <strong class="text-white">${themeName}</strong>`;
+          outputElem.appendChild(responseDiv);
+          outputElem.scrollTop = outputElem.scrollHeight;
+          return;
+        } else {
+          const responseDiv = document.createElement('div');
+          responseDiv.className = "mt-1 pl-4 text-amber-400";
+          responseDiv.innerHTML = `Usage: theme &lt;blue | cyan | violet | mono&gt;`;
+          outputElem.appendChild(responseDiv);
+          outputElem.scrollTop = outputElem.scrollHeight;
+          return;
+        }
+      }
+
+      if (cleanCmd === 'resume' || cleanCmd === 'cv') {
+        downloadResume();
+        const responseDiv = document.createElement('div');
+        responseDiv.className = "mt-1 pl-4 text-cyan-400";
+        responseDiv.innerHTML = `[TRANSMIT] Opening Yassine Bouazizi CV...`;
+        outputElem.appendChild(responseDiv);
+        outputElem.scrollTop = outputElem.scrollHeight;
+        return;
+      }
+
+      if (cleanCmd === 'exit') {
+        toggleFloatingTerminal();
+        return;
+      }
+
+      const responseDiv = document.createElement('div');
+      responseDiv.className = "mt-1 pl-4 text-slate-300";
+
+      if (TERMINAL_COMMANDS[cleanCmd]) {
+        responseDiv.innerHTML = TERMINAL_COMMANDS[cleanCmd];
+      } else if (cleanCmd === 'sudo') {
+        responseDiv.innerHTML = `<span class="text-red-400">Permission denied: guest is not in the sudoers file. This incident will be reported to Yassine.</span>`;
+      } else if (cleanCmd === '') {
+        // empty line
+        return;
+      } else {
+        responseDiv.innerHTML = `<span class="text-red-400">bash: command not found: ${cleanCmd}</span>. Type <span class="text-yellow-400 cursor-pointer underline" onclick="runTerminalCmd('help')">help</span> for commands.`;
+      }
+
+      outputElem.appendChild(responseDiv);
+      outputElem.scrollTop = outputElem.scrollHeight;
+    }
+
+    function submitBashInput() {
+      const input = document.getElementById('bash-input');
+      if (input.value.trim() !== '') {
+        executeCommand(input.value, 'bash-output');
+        input.value = '';
+      }
+    }
+
+    function runTerminalCmd(cmd) {
+      executeCommand(cmd, 'bash-output');
+      scrollToTerminal();
+    }
+
+    function submitFloatingInput() {
+      const input = document.getElementById('floating-bash-input');
+      if (input.value.trim() !== '') {
+        executeCommand(input.value, 'floating-bash-output');
+        input.value = '';
+      }
+    }
+
+    function runFloatingCmd(cmd) {
+      executeCommand(cmd, 'floating-bash-output');
+    }
+
+    // Keyboard event listeners for Enter key in inputs
+    document.getElementById('bash-input')?.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') submitBashInput();
+    });
+    document.getElementById('floating-bash-input')?.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') submitFloatingInput();
+    });
+
+    // Global Hotkey ` or ~ to toggle floating bash terminal
+    window.addEventListener('keydown', (e) => {
+      if (e.key === '`' || e.key === '~') {
+        e.preventDefault();
+        toggleFloatingTerminal();
+      }
+    });
+
+    function toggleFloatingTerminal() {
+      const modal = document.getElementById('floating-terminal-modal');
+      modal.classList.toggle('hidden');
+      if (!modal.classList.contains('hidden')) {
+        setTimeout(() => document.getElementById('floating-bash-input')?.focus(), 100);
+      }
+    }
+
+    function scrollToTerminal() {
+      document.getElementById('bash-terminal').scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => document.getElementById('bash-input')?.focus(), 400);
+    }
+
+    function scrollToTerminalWithCmd(cmd) {
+      scrollToTerminal();
+      setTimeout(() => executeCommand(cmd, 'bash-output'), 500);
+    }
+
+    // 4. PROJECT MODAL CONTROLLER
+    const PROJECT_DETAILS = {
+      edupath: {
+        title: "EduPath Web Platform",
+        category: "Full-Stack Web Ecosystem (EDDIUM PLATINUM)",
+        tech: "React.js, Vite, Node.js, Express, MySQL, JWT",
+        summary: "Engineered client-server platform during internship at EDDIUM PLATINUM. Provides full CRUD administration for academic consulting, student enrollment workflows, secure route guarding, and sub-80ms relational query response times.",
+        points: [
+          "Engineered modular RESTful micro-endpoints with Express and MySQL connection pooling.",
+          "Implemented robust JWT token authorization and strict server-side input sanitization.",
+          "Designed dynamic student consulting dashboards with real-time state synchronization."
+        ],
+        github: "https://github.com/yassinebouazizi-dev/edupath"
+      },
+      vermeg: {
+        title: "Kibana Log Monitoring & Perimeter Defense",
+        category: "IT Supervision & Virtualization (VERMEG)",
+        tech: "Kibana, Elasticsearch, Linux (Debian/Ubuntu), VMware vSphere, WAF",
+        summary: "Developed during systems & supervision internship at VERMEG. Built centralized log ingestion pipelines across multi-node virtual clusters and studied web defense layers.",
+        points: [
+          "Constructed analytical Kibana dashboards for system anomaly tracking and access telemetry.",
+          "Configured virtualized Linux nodes under Oracle VirtualBox and VMware vSphere.",
+          "Audited application layer defense using Web Application Firewalls (WAF) and Azure fundamentals."
+        ],
+        github: "https://github.com/yassinebouazizi-dev"
+      },
+      springboot: {
+        title: "Multi-Tier Spring Boot REST Engine",
+        category: "Backend Systems Architecture",
+        tech: "Java, Spring Boot, Maven, JPA / Hibernate, JUnit 5",
+        summary: "Layered enterprise software architecture enforcing strict separation of concerns (Controller-Service-Repository), automated unit testing, and relational database persistence.",
+        points: [
+          "Layered architecture with DTO mappings, custom exceptions, and global error handling.",
+          "Automated test coverage utilizing JUnit 5 and Mockito for reliability.",
+          "High-throughput relational transactions with Spring Data JPA and Hibernate."
+        ],
+        github: "https://github.com/yassinebouazizi-dev"
+      },
+      nutriguard: {
+        title: "NutriGuard Mobile AI",
+        category: "Mobile & Health Computer Vision",
+        tech: "Android, Java/Kotlin, FastAPI, Computer Vision",
+        summary: "Mobile application dedicated to dietary safety, instant barcode lookup, ingredient analysis, and personalized nutritional alerts.",
+        points: [
+          "Real-time camera barcode detection and nutrient indexing.",
+          "Offline-first SQLite caching for zero-latency lookups.",
+          "Clean Material UI with responsive health breakdown gauges."
+        ],
+        github: "https://github.com/yassinebouazizi-dev/NutriGuard"
+      },
+      clipforge: {
+        title: "ClipForge Video Engine",
+        category: "Asynchronous Media Processing Pipeline",
+        tech: "Next.js 14, TypeScript, Docker, REST Microservices",
+        summary: "Automated video reformatting engine engineered with Next.js 14 frontend and containerized backend processing jobs.",
+        points: [
+          "Asynchronous worker queues for high-throughput video processing.",
+          "Dockerized deployment for modular scalability.",
+          "Next.js App Router with server-side rendering."
+        ],
+        github: "https://github.com/yassinebouazizi-dev/clipforge-ai"
+      },
+      dashboard: {
+        title: "Interactive Telemetry Dashboard",
+        category: "High-Frequency Metrics & Analytics",
+        tech: "JavaScript (ES6+), Chart.js, REST APIs, Postman",
+        summary: "Real-time metrics platform offering visual insight into system throughput, latency telemetry, and automated API regression verification.",
+        points: [
+          "Dynamic interactive charts and responsive UI controls.",
+          "API regression test collections documented and executed via Postman.",
+          "Low-latency asynchronous fetch polling."
+        ],
+        github: "https://github.com/yassinebouazizi-dev"
+      }
+    };
+
+    function openProjectModal(key) {
+      const proj = PROJECT_DETAILS[key];
+      if (!proj) return;
+      const content = document.getElementById('project-modal-content');
+      content.innerHTML = `
+        <div class="space-y-4">
+          <div class="border-b border-blue-900/50 pb-3">
+            <span class="text-xs text-blue-400 font-bold uppercase tracking-wider">${proj.category}</span>
+            <h3 class="text-2xl font-cyber font-bold text-white mt-1">${proj.title}</h3>
+            <p class="text-xs text-cyan-300 font-mono mt-1">Stack: ${proj.tech}</p>
+          </div>
+          <p class="text-sm text-slate-300 leading-relaxed font-light">${proj.summary}</p>
+          <div class="space-y-1.5 pt-2">
+            <div class="text-xs font-bold text-white uppercase">Architectural Highlights:</div>
+            ${proj.points.map(pt => `<div class="text-xs text-slate-400 flex items-start gap-2"><span class="text-blue-400">▸</span><span>${pt}</span></div>`).join('')}
+          </div>
+          <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+            <a href="${proj.github}" target="_blank" rel="noreferrer" class="cyber-button px-4 py-2 text-xs flex items-center gap-2">
+              <i data-lucide="github" class="w-4 h-4"></i>
+              <span>View Repository</span>
+            </a>
+            <button onclick="closeProjectModal()" class="px-4 py-2 rounded bg-slate-900 border border-slate-700 text-xs text-slate-300 hover:text-white">
+              Close
+            </button>
+          </div>
+        </div>
+      `;
+      document.getElementById('project-modal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeProjectModal() {
+      document.getElementById('project-modal').classList.add('hidden');
+    }
+
+    // Filter projects by category
+    function filterProjects(cat) {
+      ['all', 'web', 'cloud', 'backend'].forEach(c => {
+        const btn = document.getElementById(`proj-tab-${c}`);
+        if (btn) {
+          if (c === cat) {
+            btn.className = "px-3 py-1 rounded text-xs font-mono bg-blue-600 text-white font-bold transition-all";
+          } else {
+            btn.className = "px-3 py-1 rounded text-xs font-mono bg-slate-900 text-slate-400 hover:text-white transition-all";
+          }
+        }
+      });
+
+      const cards = document.querySelectorAll('#projects-grid > div');
+      cards.forEach(card => {
+        if (cat === 'all' || card.getAttribute('data-category') === cat) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // 5. CONTACT FORM HANDLER WITH LIVE LOGGING
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('form-name').value;
+      const email = document.getElementById('form-email').value;
+      const msg = document.getElementById('form-message').value;
+      const btn = document.getElementById('form-submit-btn');
+      const log = document.getElementById('contact-log');
+
+      btn.disabled = true;
+      btn.innerHTML = `<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i><span>TRANSMITTING PACKET...</span>`;
+      lucide.createIcons();
+      log.classList.remove('hidden');
+      log.innerHTML = `<div>[TRANSMIT] Encrypting packet via TLS 1.3...</div>`;
+
+      setTimeout(() => {
+        log.innerHTML += `<div>[ROUTING] Handshaking with mail server (bouazizi.yassine55@gmail.com)...</div>`;
+      }, 600);
+
+      setTimeout(() => {
+        log.innerHTML += `<div class="text-emerald-400 font-bold">[SUCCESS 200] Signal received! Thank you ${name}. Yassine will review your dispatch within 24 hours.</div>`;
+        btn.innerHTML = `<i data-lucide="check" class="w-4 h-4 text-emerald-400"></i><span>PACKET DELIVERED</span>`;
+        btn.className = "cyber-button w-full py-3 text-xs flex items-center justify-center gap-2 bg-emerald-950 border-emerald-500 text-emerald-200";
+        lucide.createIcons();
+        document.getElementById('contact-form').reset();
+      }, 1400);
+    }
+
+    // 6. RESUME DOWNLOAD ACTION
+    function downloadResume() {
+      const link = document.createElement('a');
+      link.href = "cv_yassine_bouazizi.pdf";
+      link.download = "CV_Yassine_Bouazizi.pdf";
+      link.target = "_blank";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // 7. INTERACTIVE CANVAS MATRIX & PARTICLES (Smooth Cyber Grid)
+    const canvas = document.getElementById('cyber-canvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let particles = [];
+
+    function resizeCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.vx = (Math.random() - 0.5) * 0.6;
+        this.vy = (Math.random() - 0.5) * 0.6;
+        this.radius = Math.random() * 1.5 + 0.5;
+      }
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.x < 0 || this.x > width) this.vx *= -1;
+        if (this.y < 0 || this.y > height) this.vy *= -1;
+      }
+      draw() {
+        ctx.fillStyle = 'rgba(59, 130, 246, 0.4)';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < 45; i++) {
+      particles.push(new Particle());
+    }
+
+    function animateCanvas() {
+      ctx.clearRect(0, 0, width, height);
+
+      // Connect particles with subtle lines
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 110) {
+            ctx.strokeStyle = `rgba(59, 130, 246, ${0.15 * (1 - dist / 110)})`;
+            ctx.lineWidth = 0.6;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(animateCanvas);
+    }
+    animateCanvas();
+
+    // 8. INTERACTIVE HUD CURSOR TRACKER
+    const cursorDot = document.getElementById('cursor-dot');
+    const cursorHud = document.getElementById('cursor-hud');
+
+    window.addEventListener('mousemove', (e) => {
+      cursorDot.style.left = `${e.clientX}px`;
+      cursorDot.style.top = `${e.clientY}px`;
+      cursorHud.style.left = `${e.clientX}px`;
+      cursorHud.style.top = `${e.clientY}px`;
+    });
+
+    document.querySelectorAll('a, button, input, textarea, .cyber-badge').forEach(el => {
+      el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+      el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+    });
+
+    // START LIVE CODE STREAM ON PAGE LOAD
+    window.addEventListener('DOMContentLoaded', () => {
+      startLiveCodeTyping(CODE_SNIPPETS['engine']);
+    });
+  </script>
 </body>
 </html>
