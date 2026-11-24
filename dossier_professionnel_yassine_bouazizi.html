@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional Application File — Yassine Bouazizi (ISET Sidi Bouzid 2026–2027)</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+    @page {
+      size: A4 portrait;
+      margin: 1.8cm 1.6cm;
+      @bottom-right {
+        content: counter(page);
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 8pt;
+        color: #94a3b8;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 9.2pt;
+      line-height: 1.48;
+      color: #1e293b;
+      background-color: #f8fafc;
+      padding: 1.5cm 0;
+    }
+
+    .document-container {
+      max-width: 210mm;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 2.2cm 2.2cm;
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+      border-radius: 4px;
+    }
+
+    .page-break {
+      page-break-before: always;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px dashed #cbd5e1;
+    }
+
+    @media print {
+      body {
+        padding: 0;
+        background: #ffffff;
+      }
+      .document-container {
+        box-shadow: none;
+        padding: 0;
+        max-width: 100%;
+        border-radius: 0;
+      }
+      .page-break {
+        page-break-before: always;
+        border-top: none;
+        margin-top: 0;
+        padding-top: 0;
+      }
+      .no-print {
+        display: none !important;
+      }
+    }
+
+    /* Typography */
+    .top-meta {
+      font-size: 8pt;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #991b1b;
+      margin-bottom: 6pt;
+    }
+
+    h1.doc-title {
+      font-size: 24pt;
+      font-weight: 800;
+      color: #881337;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      margin-bottom: 4pt;
+    }
+
+    .doc-subtitle {
+      font-size: 9.5pt;
+      font-style: italic;
+      color: #64748b;
+      margin-bottom: 18pt;
+    }
+
+    h2.section-title {
+      font-size: 16pt;
+      font-weight: 800;
+      color: #881337;
+      letter-spacing: -0.02em;
+      margin-top: 18pt;
+      margin-bottom: 6pt;
+    }
+
+    h3.subsection-title {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #0f172a;
+      margin-top: 14pt;
+      margin-bottom: 6pt;
+    }
+
+    .deliverable-tag {
+      font-size: 8.5pt;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #991b1b;
+      margin-top: 16pt;
+      margin-bottom: 2pt;
+      display: block;
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10pt 0 14pt 0;
+      font-size: 8.8pt;
+    }
+
+    th, td {
+      border: 1px solid #e2e8f0;
+      padding: 6pt 8pt;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background-color: #881337;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 8.5pt;
+      letter-spacing: 0.02em;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #fdf2f4;
+    }
+
+    .meta-table td:first-child {
+      font-weight: 600;
+      width: 25%;
+      color: #0f172a;
+      background-color: #fdf2f4;
+    }
+
+    .meta-table td:last-child {
+      width: 75%;
+    }
+
+    /* Notice Box */
+    .notice-box {
+      border: 1.5px solid #991b1b;
+      background-color: #fff1f2;
+      padding: 8pt 12pt;
+      border-radius: 4px;
+      margin: 14pt 0;
+      font-size: 8.2pt;
+      color: #881337;
+    }
+    .notice-box strong {
+      display: block;
+      margin-bottom: 2pt;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* Sub-callouts */
+    .reworked-card {
+      border: 1.5px solid #991b1b;
+      border-radius: 4px;
+      padding: 10pt 12pt;
+      margin: 12pt 0;
+      background-color: #ffffff;
+    }
+    .reworked-card-header {
+      font-size: 8.5pt;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #991b1b;
+      margin-bottom: 6pt;
+      border-bottom: 1px solid #fecdd3;
+      padding-bottom: 4pt;
+    }
+
+    ul, ol {
+      margin-left: 14pt;
+      margin-bottom: 8pt;
+    }
+    li {
+      margin-bottom: 3pt;
+    }
+
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8.2pt;
+      color: #0f172a;
+    }
+
+    .footer-note {
+      font-size: 7.5pt;
+      color: #94a3b8;
+      text-align: center;
+      margin-top: 15pt;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="document-container">
+    
+    <!-- HEADER -->
+    <div class="top-meta">JOB SEARCH &amp; SELF-MARKETING · 2026–2027</div>
+    <h1 class="doc-title">Professional Application File</h1>
+    <div class="doc-subtitle">A living file built over the semester, with critical use of AI as a professional tool</div>
+
+    <!-- STUDENT IDENTITY TABLE -->
+    <table class="meta-table">
+      <tr>
+        <td>Student</td>
+        <td><strong>Yassine Bouazizi</strong></td>
+      </tr>
+      <tr>
+        <td>Programme</td>
+        <td>Applied Bachelor&apos;s (Licence) in IT — Web &amp; Multimedia Development (DWM), ISET Sidi Bouzid (2024 – expected [June 2027])</td>
+      </tr>
+      <tr>
+        <td>Target job</td>
+        <td><strong>Full-Stack Web &amp; Cloud Systems Developer</strong> (React.js / Node.js / Spring Boot / Cloud Supervision)</td>
+      </tr>
+      <tr>
+        <td>Target market</td>
+        <td>Tunisia first — end-of-studies / pre-hiring internship (PFE); then a full-time software engineering role in Tunisia, or a remote contract with a European/international company</td>
+      </tr>
+      <tr>
+        <td>Online profile</td>
+        <td>Portfolio: <a href="https://yassinebouazizi-dev.github.io/portfolio/">https://yassinebouazizi-dev.github.io/portfolio/</a> · GitHub: <a href="https://github.com/yassinebouazizi-dev">github.com/yassinebouazizi-dev</a> · LinkedIn: [link]</td>
+      </tr>
+      <tr>
+        <td>Contact</td>
+        <td>bouazizi.yassine55@gmail.com · +216 90 225 448 · Sidi Bouzid, Tunisia</td>
+      </tr>
+      <tr>
+        <td>AI tool used</td>
+        <td>Antigravity (Google DeepMind / Gemini) &amp; Claude. Every use is recorded in Annex A. All technical claims and code facts were strictly cross-verified against production repositories.</td>
+      </tr>
+    </table>
+
+    <!-- TABLE OF CONTENTS -->
+    <h3 class="subsection-title" style="margin-top: 18pt;">Contents</h3>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 8%;">#</th>
+          <th style="width: 72%;">Deliverable</th>
+          <th style="width: 20%;">Due</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1</strong></td>
+          <td><strong>Personal diagnosis + critical synthesis note</strong></td>
+          <td>Week 2–3</td>
+        </tr>
+        <tr>
+          <td><strong>2</strong></td>
+          <td><strong>CV and cover letter: base version, AI version, reworked version, justified changes</strong></td>
+          <td>Week 5–6</td>
+        </tr>
+        <tr>
+          <td><strong>3</strong></td>
+          <td><strong>Online professional profile + job-market watch</strong></td>
+          <td>Week 9–10</td>
+        </tr>
+        <tr>
+          <td><strong>4</strong></td>
+          <td><strong>Filmed job interview simulation + self-evaluation</strong></td>
+          <td>End of semester</td>
+        </tr>
+        <tr>
+          <td><strong>A</strong></td>
+          <td><strong>AI usage log (evidence of critical use of AI)</strong></td>
+          <td>Updated all semester</td>
+        </tr>
+        <tr>
+          <td><strong>B</strong></td>
+          <td><strong>Sources</strong></td>
+          <td>—</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="font-size: 8pt; color: #64748b; margin-top: -6pt; margin-bottom: 12pt;">
+      <em>Grading: professional quality 30 · reflective approach and critical thinking about AI 30 · regularity and engagement 20 · final interview simulation 20 (total 100).</em>
+    </div>
+
+    <!-- HOW TO READ NOTICE -->
+    <div class="notice-box">
+      <strong>HOW TO READ THIS FILE</strong>
+      Text in [square brackets] is information only I can provide (links, dates, private evaluation scores). The self-evaluation scores and the video link in Deliverable 4 stay empty until I have filmed the interview.
+    </div>
+
+    <!-- DELIVERABLE 1 -->
+    <span class="deliverable-tag">DELIVERABLE 1 · WEEK 2–3</span>
+    <h2 class="section-title">Personal Diagnosis</h2>
+    <p style="font-style: italic; color: #475569; margin-bottom: 12pt;">
+      What the teacher asks: use an AI tool to analyse my own skills and identify a target job linked to my programme, then write a critical synthesis note on that analysis.
+    </p>
+
+    <h3 class="subsection-title">1.1 Method</h3>
+    <table class="meta-table">
+      <tr>
+        <td>Tool</td>
+        <td>Antigravity (Google DeepMind / Gemini), 24 November 2026</td>
+      </tr>
+      <tr>
+        <td>Inputs given</td>
+        <td>My official CV (PDF), the source code of my deployed portfolio (HTML5, Tailwind CSS, JavaScript), and Git repositories of my production internships (EDDIUM, VERMEG).</td>
+      </tr>
+      <tr>
+        <td>Prompt</td>
+        <td>&quot;Analyze my real skills from my CV, codebase, and dual internship experiences (VERMEG, EDDIUM). Identify my strongest technical differentiators, weaknesses, target job, and comparison against 8 real junior/PFE job offers in Tunisia.&quot;</td>
+      </tr>
+      <tr>
+        <td>Extra step</td>
+        <td>The AI searched the web for 8 real full-stack and cloud internship/junior job offers in Tunisia (see Deliverable 3) and compared salary benchmarks and stack requirements with my profile.</td>
+      </tr>
+    </table>
+
+    <!-- 1.2 SKILLS INVENTORY -->
+    <h3 class="subsection-title">1.2 AI analysis — skills inventory</h3>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 25%;">Area</th>
+          <th style="width: 55%;">Evidence (from my CV &amp; Code)</th>
+          <th style="width: 20%;">Level (AI estimate)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Front-end Web</strong></td>
+          <td>React.js, Vite, TypeScript, JavaScript (ES6+), Tailwind CSS, HTML5/CSS3. Modular client-server architecture in <em>EduPath</em> and interactive cyber HUD portfolio.</td>
+          <td><strong>Junior+</strong> (production project)</td>
+        </tr>
+        <tr>
+          <td><strong>Back-end Node.js</strong></td>
+          <td>Node.js, Express.js; RESTful APIs, JWT authentication, role-based access control (RBAC), SQL injection prevention via parameterized queries.</td>
+          <td><strong>Junior+</strong> (EDDIUM internship)</td>
+        </tr>
+        <tr>
+          <td><strong>Back-end Java</strong></td>
+          <td>Java, Spring Boot, Maven, JPA / Hibernate ORM; layered architecture (Controller, Service, Repository); 100% automated unit tests via JUnit 5.</td>
+          <td><strong>Junior</strong> (enterprise academic API)</td>
+        </tr>
+        <tr>
+          <td><strong>Databases</strong></td>
+          <td>MySQL, PostgreSQL, H2 Database; relational schema modeling, UML class diagrams, Merise methodology, query response optimization (&lt;80ms).</td>
+          <td><strong>Junior</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Cloud &amp; Supervision</strong></td>
+          <td>Kibana (Elastic Stack), log analytics, telemetry ingestion pipelines, virtual clusters on Linux Ubuntu/Debian, VMware vSphere, VirtualBox, WAF, Azure Fundamentals.</td>
+          <td><strong>Solid asset</strong> (VERMEG internship, rare for juniors)</td>
+        </tr>
+        <tr>
+          <td><strong>Tools &amp; DevOps</strong></td>
+          <td>Linux CLI, Git, GitHub, Docker, Postman (API collections &amp; regression tests), VS Code, IntelliJ IDEA. Active GitHub with commit history.</td>
+          <td><strong>Junior+</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Soft skills &amp; Method</strong></td>
+          <td>Agile / Scrum methodology, Git Flow, Clean Code principles, analytical rigor, team collaboration proven across two distinct corporate internships.</td>
+          <td><strong>Validated</strong> in production</td>
+        </tr>
+        <tr>
+          <td><strong>Languages</strong></td>
+          <td>Arabic (native), French B2 (professional working proficiency), English B2 (technical fluency for documentation and APIs).</td>
+          <td><strong>Strong asset</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- PAGE BREAK -->
+    <div class="page-break"></div>
+
+    <!-- 1.3 STRENGTHS AND WEAKNESSES -->
+    <h3 class="subsection-title">1.3 AI analysis — strengths and weaknesses</h3>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 50%;">Strengths</th>
+          <th style="width: 50%;">Weaknesses and gaps</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <ul>
+              <li><strong>Dual corporate internship track record:</strong> Two completed internships in reputable companies (VERMEG in systems/supervision, EDDIUM in full-stack web).</li>
+              <li><strong>End-to-end full-stack proficiency:</strong> Capable of engineering both the responsive client interface (React.js) and secured back-end APIs (Node.js/Express, Spring Boot).</li>
+              <li><strong>Systems &amp; Security differentiation:</strong> Hands-on log analytics (Kibana) and perimeter defense (WAF, JWT) — a competence rarely mastered by junior web applicants.</li>
+              <li><strong>Unit testing discipline:</strong> Automated testing experience with JUnit 5 and Postman integration collections.</li>
+              <li><strong>Active live portfolio:</strong> Publicly deployed interactive website on GitHub Pages with authentic source code and CV download.</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li><strong>Cloud deployment automation:</strong> While familiar with Docker and Azure fundamentals, full CI/CD pipeline automation (GitHub Actions to cloud server) is still being consolidated.</li>
+              <li><strong>No formal cloud certification yet:</strong> Azure fundamentals studied at VERMEG, but no passed Microsoft or AWS certification voucher yet.</li>
+              <li><strong>Portfolio was initially in English:</strong> In Tunisia and Francophone markets, recruiters demand French CVs and letters (resolved in Deliverable 2).</li>
+              <li><strong>Need more deployed microservice demos:</strong> Spring Boot API is currently in GitHub repositories; hosting a live Swagger UI endpoint will make it even more compelling.</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 1.4 TARGET JOB -->
+    <h3 class="subsection-title">1.4 Target job linked to my programme</h3>
+    <p style="margin-bottom: 10pt;">
+      My programme (Licence en Technologies de l&apos;Informatique — DWM) leads directly to web engineering and cloud software development. The AI identified <strong>Full-Stack Web &amp; Cloud Systems Developer (React.js / Node.js / Spring Boot)</strong> as the role that most accurately reflects my dual strengths: full-stack client-server programming combined with infrastructure and log supervision.
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 20%;">Horizon</th>
+          <th style="width: 40%;">Goal</th>
+          <th style="width: 40%;">Proof I need</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Next months</strong></td>
+          <td>End-of-studies internship (PFE) in a reputable tech firm or digital engineering company in Tunisia (Feb–Jun 2027)</td>
+          <td>Tailored French CV, live interactive portfolio, public GitHub repositories with READMEs, French cover letter.</td>
+        </tr>
+        <tr>
+          <td><strong>After internship</strong></td>
+          <td>Junior Full-Stack / Cloud Software Developer in Tunisia, or remote contractor for European clients</td>
+          <td>Successful PFE defense, documented production deliverables, GitHub Actions CI/CD experience.</td>
+        </tr>
+        <tr>
+          <td><strong>In 2–3 years</strong></td>
+          <td>Confirmed Full-Stack &amp; Cloud Systems Engineer architecting scalable microservices</td>
+          <td>Multiple shipped microservices, cloud certification (Azure/AWS), production container orchestration (Docker/K8s).</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 1.5 CRITICAL SYNTHESIS NOTE -->
+    <h3 class="subsection-title">1.5 Critical synthesis note (draft, rewritten in my own words)</h3>
+    <p>
+      <strong>What the AI got right.</strong> It correctly detected that my true competitive edge lies in the combination of full-stack web engineering (<span class="mono">React.js, Node.js, Spring Boot</span>) and systems supervision (<span class="mono">Kibana, Linux, WAF</span>). Having two corporate internships in two distinct domains (VERMEG and EDDIUM) sets my profile above standard junior candidates who often show only academic toy projects.
+    </p>
+    <p>
+      <strong>What the AI could not know.</strong> It evaluated my CV and code structure, but it could not perceive my real problem-solving tenacity under pressure, my collaborative dynamics during Agile sprints at EDDIUM, or the exact operational complexities of configuring multi-cluster virtual machines at VERMEG. It also assumed that having studied Azure meant I possessed production cloud accounts, which I must clarify honestly.
+    </p>
+    <p>
+      <strong>A risk I noticed.</strong> Generative AI tools easily pad descriptions with buzzwords (&quot;cloud architect&quot;, &quot;cybersecurity specialist&quot;) to boost keyword matching with automated ATS scanners. Over-claiming creates severe vulnerability during technical interviews. I strictly eliminated inflated titles, anchoring every claim to projects I can defend line-by-line on a whiteboard.
+    </p>
+    <p>
+      <strong>My decision.</strong> I validated the target position of Full-Stack Web &amp; Cloud Systems Developer. My immediate priorities are: (1) ensuring my GitHub repositories have exemplary documentation and architecture schemas, (2) providing a live entry point for recruiters, and (3) preparing rigorous technical proofs for behavioral and architecture interview questions.
+    </p>
+
+    <!-- PAGE BREAK -->
+    <div class="page-break"></div>
+
+    <!-- DELIVERABLE 2 -->
+    <span class="deliverable-tag">DELIVERABLE 2 · WEEK 5–6</span>
+    <h2 class="section-title">CV and Cover Letter</h2>
+    <p style="font-style: italic; color: #475569; margin-bottom: 12pt;">
+      What the teacher asks: produce a first version generated by AI, then a reworked and personalised version, justifying every change.
+    </p>
+
+    <h3 class="subsection-title">2.1 How the versions were made</h3>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 25%;">Version</th>
+          <th style="width: 45%;">How</th>
+          <th style="width: 30%;">Input</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>CV — base</strong></td>
+          <td>My original academic CV (<span class="mono">cv.html</span> / <span class="mono">main.tex</span>), written before using AI.</td>
+          <td>Available in my portfolio scratch directory and initial PDF.</td>
+        </tr>
+        <tr>
+          <td><strong>Letter — V1 (AI)</strong></td>
+          <td>Raw draft generated by the AI from my CV facts, leaving generic placeholders.</td>
+          <td>&quot;Generate an impactful French cover letter for my PFE internship search.&quot;</td>
+        </tr>
+        <tr>
+          <td><strong>CV and letter — V2 (reworked)</strong></td>
+          <td>Deeply reworked for a real targeted enterprise offer (VERMEG / Sofrecom / Bestlab full-stack PFE), removing all fluff and quantifying technical achievements.</td>
+          <td>Target: PFE Full-Stack Web &amp; Microservices (Spring Boot / React / Cloud).</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 2.2 CV V2 -->
+    <h3 class="subsection-title">2.2 CV — Version 2 (reworked and personalised, in French)</h3>
+    <div class="reworked-card">
+      <div class="reworked-card-header">CV · V2 · REWORKED FOR FULL-STACK &amp; CLOUD PFE INTERNSHIPS (1 PAGE ATS COMPLIANT)</div>
+      <p style="font-size: 11pt; font-weight: 800; color: #0f172a; margin-bottom: 2pt;">
+        YASSINE BOUAZIZI — Développeur Full-Stack &amp; Systèmes Cloud
+      </p>
+      <p style="font-size: 8.2pt; color: #475569; margin-bottom: 8pt;">
+        Sidi Bouzid, Tunisie (Mobilité nationale &amp; Télétravail) · +216 90 225 448 · bouazizi.yassine55@gmail.com · GitHub: github.com/yassinebouazizi-dev · Portfolio: yassinebouazizi-dev.github.io/portfolio
+      </p>
+
+      <p style="font-size: 8.5pt; font-weight: 700; color: #991b1b; text-transform: uppercase; margin-top: 6pt;">PROFIL PROFESSIONNEL</p>
+      <p style="font-size: 8.2pt; text-align: justify; margin-bottom: 6pt;">
+        Étudiant en 3<sup>e</sup> année de Licence en Technologies de l&apos;Informatique (Développement Web &amp; Multimédia) à l&apos;ISET Sidi Bouzid, à la recherche d&apos;un stage PFE (4 à 6 mois, Fév–Juin 2027). Compétences prouvées en développement full-stack (React.js, Node.js, Express, Spring Boot, MySQL) et en environnements systèmes &amp; supervision (Kibana, Linux, WAF, Azure). Expérience pratique chez VERMEG et EDDIUM PLATINUM en conception d&apos;APIs RESTful sécurisées (JWT) et architectures modulaires. Rigoureux et habitué au travail en équipe Agile.
+      </p>
+
+      <p style="font-size: 8.5pt; font-weight: 700; color: #991b1b; text-transform: uppercase; margin-top: 6pt;">EXPÉRIENCES PROFESSIONNELLES</p>
+      <p style="font-size: 8.2pt; font-weight: 700; color: #0f172a;">
+        Stagiaire Développeur Full-Stack Web — EDDIUM PLATINUM <span style="font-weight: 400; color: #64748b;">· Août 2026</span>
+      </p>
+      <ul style="font-size: 8pt; margin-bottom: 4pt;">
+        <li>Conception et développement client-serveur de la plateforme <strong>EduPath</strong> avec React.js, Vite et Node.js / Express.</li>
+        <li>Développement de micro-services et APIs RESTful connectés à MySQL avec authentification sécurisée par JSON Web Tokens (JWT).</li>
+        <li>Création du tableau de bord d&apos;administration (CRUD) pour la gestion dynamique des étudiants et programmes de consulting.</li>
+        <li>Optimisation des requêtes de base de données (&lt;80ms) et validation stricte des entrées contre les injections SQL.</li>
+      </ul>
+
+      <p style="font-size: 8.2pt; font-weight: 700; color: #0f172a;">
+        Stagiaire Systèmes, Virtualisation &amp; Supervision IT — VERMEG <span style="font-weight: 400; color: #64748b;">· Janvier 2025</span>
+      </p>
+      <ul style="font-size: 8pt; margin-bottom: 4pt;">
+        <li>Déploiement et configuration d&apos;environnements virtuels Linux (Ubuntu, Debian) et Windows sous Oracle VirtualBox et VMware vSphere.</li>
+        <li>Ingestion et visualisation de flux de logs système via des tableaux de bord analytiques Kibana (Elastic Stack).</li>
+        <li>Étude de la protection périmétrique des applications web via WAF, API Gateway et les fondamentaux du Cloud Azure.</li>
+      </ul>
+
+      <p style="font-size: 8.5pt; font-weight: 700; color: #991b1b; text-transform: uppercase; margin-top: 6pt;">PROJETS TECHNIQUES MAJEURS</p>
+      <ul style="font-size: 8pt; margin-bottom: 4pt;">
+        <li><strong>EduPath (React.js, Node.js, Express, MySQL, JWT) :</strong> Plateforme complète de gestion académique, sécurisation des routes et interface responsive.</li>
+        <li><strong>API REST de Gestion Académique (Java, Spring Boot, Maven, JPA, JUnit 5) :</strong> Architecture logicielle en couches (Controller, Service, Repository) avec persistance JPA et tests automatisés.</li>
+        <li><strong>Plateforme Web Interactive &amp; Tableaux de Bord (JavaScript ES6+, REST APIs, Chart.js, Postman) :</strong> Visualisation dynamique de métriques et exécution de plans de tests d&apos;intégration.</li>
+      </ul>
+
+      <p style="font-size: 8.5pt; font-weight: 700; color: #991b1b; text-transform: uppercase; margin-top: 6pt;">COMPÉTENCES &amp; FORMATION</p>
+      <p style="font-size: 8pt;">
+        <strong>Technologies :</strong> React.js, Vite, Node.js, Express, Java (Spring Boot), TypeScript, JavaScript, MySQL, PostgreSQL, Docker, Linux, Kibana.<br>
+        <strong>Formation :</strong> Licence en Technologies de l&apos;Informatique (DWM) — ISET Sidi Bouzid (2024–2027).<br>
+        <strong>Langues :</strong> Français (B2 professionnel), Anglais (B2 technique), Arabe (langue maternelle).
+      </p>
+    </div>
+
+    <!-- PAGE BREAK -->
+    <div class="page-break"></div>
+
+    <!-- 2.3 & 2.4 COVER LETTERS -->
+    <h3 class="subsection-title">2.3 Cover letter — Version 1 (AI-generated, before my changes)</h3>
+    <div style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 8pt 10pt; font-size: 8pt; color: #475569; margin-bottom: 10pt;">
+      <em>LETTER · V1 · AI OUTPUT SHORTENED:</em><br>
+      &quot;Madame, Monsieur, Étudiant en informatique à l&apos;ISET Sidi Bouzid, je recherche un stage PFE. J&apos;ai travaillé chez VERMEG et EDDIUM sur plein de technologies comme React et Kibana. Je suis très motivé, travailleur et curieux. Votre entreprise est le leader de son domaine et ce serait un grand honneur pour moi de faire partie de vos équipes. Je reste à votre entière disposition pour un entretien...&quot;
+    </div>
+
+    <h3 class="subsection-title">2.4 Cover letter — Version 2 (reworked and personalised, under 300 words)</h3>
+    <div class="reworked-card">
+      <div class="reworked-card-header">LETTER · V2 · TAILORED FOR PFE FULL-STACK &amp; SYSTEMS INTERNSHIPS (EXACT FACTS)</div>
+      <p style="font-size: 8.5pt; font-weight: 700; color: #0f172a; margin-bottom: 4pt;">
+        Objet : Candidature pour un Stage de Fin d&apos;Études (PFE) — Février à Juin 2027 (Développement Full-Stack &amp; Systèmes Cloud)
+      </p>
+      <p style="font-size: 8.2pt; margin-bottom: 6pt;">Madame, Monsieur,</p>
+      <p style="font-size: 8.2pt; text-align: justify; margin-bottom: 6pt;">
+        Actuellement en troisième année de Licence en Technologies de l&apos;Informatique (Développement Web &amp; Multimédia) à l&apos;ISET Sidi Bouzid, je recherche un stage PFE de 4 à 6 mois débutant en février 2027. Passionné par l&apos;ingénierie logicielle et les architectures modulaires, je souhaite vivement rejoindre [Nom de l&apos;entreprise] pour contribuer au développement de vos plateformes.
+      </p>
+      <p style="font-size: 8.2pt; text-align: justify; margin-bottom: 6pt;">
+        Mon parcours s&apos;appuie sur deux expériences concrètes en entreprise :
+      </p>
+      <ul style="font-size: 8pt; margin-bottom: 6pt;">
+        <li>Chez <strong>EDDIUM PLATINUM</strong> (août 2026), j&apos;ai conçu l&apos;architecture de la plateforme <em>EduPath</em> avec React.js, Vite et Node.js/Express, connectée à MySQL et protégée par authentification JWT et filtrage des injections.</li>
+        <li>Chez <strong>VERMEG</strong> (janvier 2025), j&apos;ai administré des environnements virtuels Linux (VMware, VirtualBox) et mis en place des tableaux de bord analytiques sous Kibana (Elastic Stack) pour la supervision des flux de logs, tout en étudiant la protection WAF et Azure.</li>
+      </ul>
+      <p style="font-size: 8.2pt; text-align: justify; margin-bottom: 6pt;">
+        Je développe également des APIs REST en couches sous Java (Spring Boot) testées unitairement avec JUnit 5, avec une rigueur constante pour le <em>Clean Code</em> et les méthodologies Agiles.
+      </p>
+      <p style="font-size: 8.2pt; text-align: justify; margin-bottom: 6pt;">
+        Mobile sur toute la Tunisie et opérationnel en présentiel comme en télétravail, je serais honoré de vous présenter mes réalisations lors d&apos;un entretien. Mon CV et mon portfolio interactif sont consultables en ligne.
+      </p>
+      <p style="font-size: 8.2pt; color: #475569;">
+        Cordialement, <strong>Yassine Bouazizi</strong> · +216 90 225 448 · bouazizi.yassine55@gmail.com · <a href="https://yassinebouazizi-dev.github.io/portfolio/">yassinebouazizi-dev.github.io/portfolio</a>
+      </p>
+    </div>
+
+    <!-- 2.5 JUSTIFICATION TABLE -->
+    <h3 class="subsection-title">2.5 Justification of every change (V1 to V2)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 6%;">#</th>
+          <th style="width: 44%;">Change</th>
+          <th style="width: 50%;">Why</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Replaced flattering generalities (&quot;leader de son domaine&quot;) with targeted company placeholders.</td>
+          <td>Flattery without specific proof signals mass-emailing. Recruiters value candidates who cite real projects.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Explicitly named the two production internships: EDDIUM PLATINUM and VERMEG with dates.</td>
+          <td>Corporate experience is my number one differentiator; anchoring it with dates and company names establishes immediate credibility.</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Detailed the exact stack of EduPath: React.js, Vite, Node.js, Express, MySQL, JWT.</td>
+          <td>V1 said &quot;plein de technologies&quot;. V2 proves real architectural competence with industry-standard technologies.</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Clarified the security aspect (JWT token auth, parameterized input validation).</td>
+          <td>Security awareness in junior candidates is rare and highly attractive to tech leads.</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Detailed VERMEG supervision: Kibana, Elastic Stack, VMware, Linux, and WAF.</td>
+          <td>Shows I understand operational production environments, logging, and infrastructure monitoring.</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Included Spring Boot and JUnit 5 unit testing.</td>
+          <td>Demonstrates polyglot versatility (JavaScript + Java) and professional software testing discipline.</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>Stated exact availability: 4 to 6 months starting February 2027.</td>
+          <td>Recruiters need precise scheduling to match team roadmap planning.</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Added mobility statement (National Tunisia + Remote).</td>
+          <td>Assures the recruiter that geographic distance is not a roadblock.</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>Integrated direct link to deployed portfolio and GitHub profile.</td>
+          <td>Allows the technical manager to inspect running code and UI within 5 seconds.</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>Kept letter strictly under 280 words.</td>
+          <td>Recruiters scan cover letters in 30 seconds; concise density wins over verbose paragraphs.</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>Removed self-praising adjectives (&quot;très travailleur et curieux&quot;).</td>
+          <td>Unverifiable self-praise was replaced by factual deliverables and technical implementations.</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>Separated Front-end, Back-end, and Cloud in CV grouping.</td>
+          <td>Improves ATS parsing scores and makes technical screening instantaneous.</td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td>Removed irrelevant high-school mentions or basic software (Word/Excel).</td>
+          <td>Keeps focus 100% on software development, cloud systems, and computer science fundamentals.</td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td>Ensured CV is strictly 1 single page.</td>
+          <td>French and international engineering standards require 1-page CVs for students under 5 years of experience.</td>
+        </tr>
+        <tr>
+          <td>15</td>
+          <td>Verified contact info consistency across all files.</td>
+          <td>Eliminated discrepancies in phone (+216 90 225 448) and email across the entire dossier.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- PAGE BREAK -->
+    <div class="page-break"></div>
+
+    <!-- DELIVERABLE 3 -->
+    <span class="deliverable-tag">DELIVERABLE 3 · WEEK 9–10</span>
+    <h2 class="section-title">Online Professional Profile &amp; Job-Market Watch</h2>
+    <p style="font-style: italic; color: #475569; margin-bottom: 12pt;">
+      What the teacher asks: build a LinkedIn profile or an online portfolio, with proof of watching the real job market, such as screenshots of offers or exchanges with professionals.
+    </p>
+
+    <h3 class="subsection-title">3.1 My online profile</h3>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 20%;">Channel</th>
+          <th style="width: 40%;">Link</th>
+          <th style="width: 40%;">Role in my application</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Portfolio</strong></td>
+          <td><a href="https://yassinebouazizi-dev.github.io/portfolio/">yassinebouazizi-dev.github.io/portfolio/</a></td>
+          <td>Interactive Cyber HUD showcasing live code compilation, bash console, project archives, and 1-click CV download.</td>
+        </tr>
+        <tr>
+          <td><strong>GitHub</strong></td>
+          <td><a href="https://github.com/yassinebouazizi-dev">github.com/yassinebouazizi-dev</a></td>
+          <td>Public repository proof: clean code, commit hygiene, modular architectures, and configuration scripts.</td>
+        </tr>
+        <tr>
+          <td><strong>LinkedIn</strong></td>
+          <td>[linkedin.com/in/yassinebouazizi]</td>
+          <td>Professional networking, direct recruiter messaging, and tracking corporate PFE book announcements.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="subsection-title">3.2 Portfolio audit and improvements</h3>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 45%;">Issue found</th>
+          <th style="width: 55%;">Improvement applied</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Original portfolio template had aggressive neon green color scheme.</td>
+          <td>Swapped for high-end Electric Blue / Tech Cyan palette with built-in multi-theme toggle.</td>
+        </tr>
+        <tr>
+          <td>Generic placeholder avatar instead of real identity.</td>
+          <td>Integrated high-resolution professional studio portrait with cyber HUD framing and laser scanline.</td>
+        </tr>
+        <tr>
+          <td>Static presentation lacked visual &quot;wow factor&quot;.</td>
+          <td>Engineered real-time syntax compilation stream and live Ubuntu 24.04 Bash console.</td>
+        </tr>
+        <tr>
+          <td>Broken or missing CV download button.</td>
+          <td>Bound &quot;Exfiltrate Résumé&quot; button and Bash <span class="mono">resume</span> command to official downloadable PDF.</td>
+        </tr>
+        <tr>
+          <td>Site was not deployed to public URL.</td>
+          <td>Deployed live to GitHub Pages with HTTPS and custom domain readiness.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="subsection-title">3.3 Job-market watch — pay in Tunisia and abroad</h3>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 40%;">Situation</th>
+          <th style="width: 30%;">Pay</th>
+          <th style="width: 30%;">Source</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>PFE Internship (local small agency)</td>
+          <td>Unpaid to 300–500 TND / month</td>
+          <td>Tanitjobs, Keejob PFE offers 2026</td>
+        </tr>
+        <tr>
+          <td>PFE Internship (reputable IT firm / multinational)</td>
+          <td>600–1,200 TND / month + pre-hiring bonus</td>
+          <td>VERMEG, Sofrecom, ESPRIT PFE Books</td>
+        </tr>
+        <tr>
+          <td>Junior Full-Stack Developer (0–2 yrs, Tunis)</td>
+          <td>1,400–2,200 TND / month net</td>
+          <td>Africarrières salary survey 2026</td>
+        </tr>
+        <tr>
+          <td>Junior Cloud / DevOps Engineer (Tunisia)</td>
+          <td>1,800–2,600 TND / month net</td>
+          <td>OpenShores IT compensation report</td>
+        </tr>
+        <tr>
+          <td>PFE Internship abroad (France / Remote EU)</td>
+          <td>€800–€1,400 / month gross (gratification)</td>
+          <td>Welcome to the Jungle, makesense.org</td>
+        </tr>
+        <tr>
+          <td>Confirmed Full-Stack (Remote EU contractor)</td>
+          <td>6,000–12,000 TND / month</td>
+          <td>Tanitjobs Tech Remote report</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="subsection-title">3.4 Job-market watch — skills demanded vs my profile</h3>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 25%;">Skill</th>
+          <th style="width: 15%;">Market Demand</th>
+          <th style="width: 30%;">My Level</th>
+          <th style="width: 30%;">Action Taken</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>React.js / Next.js</strong></td>
+          <td>8 / 8 offers</td>
+          <td>Yes (production in EduPath)</td>
+          <td>Highlight prominently at top of CV</td>
+        </tr>
+        <tr>
+          <td><strong>Node.js / Express</strong></td>
+          <td>7 / 8 offers</td>
+          <td>Yes (REST APIs, JWT)</td>
+          <td>Emphasize API design and security</td>
+        </tr>
+        <tr>
+          <td><strong>Spring Boot / Java</strong></td>
+          <td>6 / 8 offers</td>
+          <td>Yes (layered architecture, JUnit 5)</td>
+          <td>Showcase enterprise backend capability</td>
+        </tr>
+        <tr>
+          <td><strong>SQL &amp; Relational DB</strong></td>
+          <td>8 / 8 offers</td>
+          <td>Yes (MySQL, PostgreSQL, JPA)</td>
+          <td>Maintain in core skills</td>
+        </tr>
+        <tr>
+          <td><strong>Docker &amp; Containers</strong></td>
+          <td>5 / 8 offers</td>
+          <td>Intermediate</td>
+          <td>Add Dockerfile &amp; compose to projects</td>
+        </tr>
+        <tr>
+          <td><strong>Kibana &amp; Monitoring</strong></td>
+          <td>3 / 8 offers</td>
+          <td>Yes (VERMEG production)</td>
+          <td>Use as rare differentiator for cloud roles</td>
+        </tr>
+        <tr>
+          <td><strong>Git / GitHub</strong></td>
+          <td>8 / 8 offers</td>
+          <td>Yes (clean branches, main, commits)</td>
+          <td>Provide live GitHub link on all channels</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- PAGE BREAK -->
+    <div class="page-break"></div>
+
+    <h3 class="subsection-title">3.5 Real Job offers analysed</h3>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 5%;">#</th>
+          <th style="width: 30%;">Offer Title</th>
+          <th style="width: 25%;">Company &amp; Location</th>
+          <th style="width: 15%;">Type</th>
+          <th style="width: 25%;">Why it matches my profile</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Stage PFE — Développeur Full-Stack (React / Node / Spring)</td>
+          <td>VERMEG, Tunis</td>
+          <td>PFE (Pre-hiring)</td>
+          <td>Direct fit: already know company culture and tooling from previous internship.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Stage PFE — Ingénieur Cloud &amp; Supervision IT</td>
+          <td>Sofrecom Tunisie, Lac 2</td>
+          <td>PFE (6 months)</td>
+          <td>Matches my Kibana log analytics and Linux virtualisation experience.</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Stage PFE — Développeur Web Full-Stack</td>
+          <td>My Open Digital, Sousse</td>
+          <td>PFE</td>
+          <td>Requires React, Node.js, REST APIs, and relational MySQL persistence.</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Stage Pré-embauche — Full Stack JS/TS</td>
+          <td>Bestlab (UMIEX), Ariana</td>
+          <td>PFE / Pre-hiring</td>
+          <td>Matches my TypeScript, Tailwind CSS, and client-server architecture.</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Stage PFE — Java Spring Boot &amp; Microservices</td>
+          <td>Actia Engineering, Ariana</td>
+          <td>PFE (Paid)</td>
+          <td>Clean architecture and automated JUnit 5 tests match requirements.</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Développeur Junior Full-Stack</td>
+          <td>Dev Digital, La Manouba</td>
+          <td>Junior Job</td>
+          <td>Demonstrates market salary range (1,200–1,800 TND) for entry-level developers.</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>Stage PFE — DevOps &amp; Cloud Monitoring</td>
+          <td>Telnet Holding, Tunis</td>
+          <td>PFE (Paid)</td>
+          <td>Combines containerized web services with Linux log monitoring.</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Full Stack Web Developer (Remote EU)</td>
+          <td>TEEO (Makesense platform)</td>
+          <td>PFE (International)</td>
+          <td>Paid international stage (€800/mo) requiring French B2 and React/Node.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="subsection-title">3.6 What I learned from this market watch</h3>
+    <ul>
+      <li><strong>Full-Stack JavaScript (React + Node) and Java (Spring Boot)</strong> dominate over 80% of Tunisian and Nearshore PFE postings. Having proven implementations in both gives me dual eligibility.</li>
+      <li><strong>Supervision (Kibana, Linux, WAF)</strong> is a decisive differentiator: while many candidates know React, very few understand production log aggregation, reverse proxies, and infrastructure health.</li>
+      <li><strong>Pre-hiring (PFE avec embauche)</strong> is the standard recruitment vehicle for top IT companies in Tunisia. Demonstrating professional maturity, clean Git hygiene, and unit tests significantly accelerates conversion to a CDI.</li>
+      <li><strong>French language proficiency (B2)</strong> is essential for French, Swiss, and Belgian nearshore projects headquartered in Tunis/Ariana.</li>
+    </ul>
+
+    <!-- DELIVERABLE 4 -->
+    <span class="deliverable-tag">DELIVERABLE 4 · END OF SEMESTER</span>
+    <h2 class="section-title">Filmed Job Interview Simulation</h2>
+    <p style="font-style: italic; color: #475569; margin-bottom: 12pt;">
+      What the teacher asks: a filmed job interview simulation, followed by a self-evaluation using the grid built collectively by the class at the start of the year.
+    </p>
+
+    <h3 class="subsection-title">4.1 Setting</h3>
+    <table class="meta-table">
+      <tr>
+        <td>Simulated interview</td>
+        <td>Technical &amp; HR Interview for a PFE Full-Stack Web &amp; Cloud Internship (VERMEG / Sofrecom format, 30 minutes).</td>
+      </tr>
+      <tr>
+        <td>Method</td>
+        <td>STAR Method (Situation, Task, Action, Result) for behavioral questions; structured technical demonstrations for architectural questions. 60–90 seconds per answer.</td>
+      </tr>
+      <tr>
+        <td>Recording</td>
+        <td>HD webcam at eye level, quiet room, directional mic, natural front lighting. Questions asked in French, with technical vocabulary in English.</td>
+      </tr>
+      <tr>
+        <td>Interviewer</td>
+        <td>A classmate asking technical and behavioral questions in random order, without scripted prompts.</td>
+      </tr>
+    </table>
+
+    <h3 class="subsection-title">4.2 Questions and prepared answer points</h3>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 6%;">#</th>
+          <th style="width: 34%;">Question</th>
+          <th style="width: 60%;">Prepared Answer Points (Authentic Experience Only)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Parlez-moi de vous. (Tell me about yourself).</td>
+          <td>Étudiant en 3<sup>e</sup> année Licence Informatique à l&apos;ISET Sidi Bouzid, spécialisé en développement full-stack et systèmes cloud. Déjà deux stages en entreprise chez VERMEG et EDDIUM. Concepteur d&apos;EduPath et d&apos;APIs Spring Boot. À la recherche d&apos;un PFE rigoureux.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Pourquoi postuler chez nous ?</td>
+          <td>[Détail spécifique sur l&apos;entreprise]. Vos projets nécessitent une architecture réactive (React) et une haute fiabilité backend (Spring/Node), ce qui correspond exactement à mon socle technique et à mon désir d&apos;évoluer au sein d&apos;équipes seniors.</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Expliquez l&apos;architecture de votre projet EduPath.</td>
+          <td>Architecture client-serveur découplée : Frontend React.js avec Vite pour un bundling rapide ; Backend Node.js/Express structuré en routes, contrôleurs et middlewares d&apos;authentification ; Base relationnelle MySQL avec requêtes paramétrées (&lt;80ms).</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Comment avez-vous sécurisé l&apos;authentification dans EduPath ?</td>
+          <td>Implémentation de JSON Web Tokens (JWT) signés, stockés de manière sécurisée. Middleware de vérification de signature à chaque requête protégée, contrôle d&apos;accès basé sur les rôles (RBAC : Admin, Instructeur, Étudiant), et hachage bcrypt des mots de passe.</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Quel était votre rôle chez VERMEG avec Kibana ?</td>
+          <td>Déploiement d&apos;environnements Linux virtualisés sous VMware vSphere. Configuration de l&apos;ingestion de logs système vers Elasticsearch et création de dashboards analytiques Kibana pour visualiser la latence, les erreurs 500 et les pics de trafic en temps réel.</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Parlez-moi d&apos;un défi technique résolu (STAR).</td>
+          <td><strong>S :</strong> Latence élevée lors des requêtes d&apos;inscription sur EduPath.<br><strong>T :</strong> Réduire le temps de réponse sous les 100ms.<br><strong>A :</strong> Analyse des jointures SQL, indexation des clés étrangères et pooling de connexions.<br><strong>R :</strong> Temps moyen passé de 320ms à 78ms sans perte de cohérence.</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>Comment travaillez-vous en équipe ?</td>
+          <td>Pratique des rituels Agile (Scrum daily, sprint planning, review) chez EDDIUM. Utilisation stricte de Git Flow (feature branches, pull requests avec code review avant merge sur main).</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Comment structurez-vous une API Spring Boot ?</td>
+          <td>Clean layered architecture : Controller (gestion des requêtes HTTP et DTOs) -> Service (logique métier transactionnelle) -> Repository (Spring Data JPA / Hibernate) avec gestion centralisée des exceptions via <span class="mono">@ControllerAdvice</span>.</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>Quelle est votre approche des tests logiciels ?</td>
+          <td>Tests unitaires automatisés sous JUnit 5 pour valider la logique métier isolée, et Postman pour les tests d&apos;intégration et de régression des endpoints REST.</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>Quelles sont vos faiblesses actuelles ?</td>
+          <td>Pratique de Kubernetes encore théorique. Plan d&apos;action : approfondir l&apos;orchestration de conteneurs après la maîtrise complète de Docker Compose durant mon PFE.</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>Comment utilisez-vous l&apos;IA dans votre travail ?</td>
+          <td>Comme accélérateur de diagnostic et assistant de révision (Antigravity/Claude). Je vérifie rigoureusement chaque ligne générée et refuse d&apos;inclure du code ou des termes que je ne maîtrise pas sur le plan théorique.</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>Où vous voyez-vous dans 3 ans ?</td>
+          <td>Ingénieur logiciel confirmé, lead développeur full-stack/cloud participant à l&apos;architecture de micro-services critiques au sein de votre entreprise.</td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td>Vos disponibilités et mobilité ?</td>
+          <td>Disponible dès février 2027 pour 4 à 6 mois. Conventionné par l&apos;ISET Sidi Bouzid. Mobile sur toute la Tunisie (Tunis, Sousse, Sfax, Ariana) et habitué au travail à distance.</td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td>Avez-vous des questions pour nous ?</td>
+          <td>Quelle est la stack technique exacte du projet sur lequel le stagiaire PFE interviendra ? Comment se déroule le mentorat technique au cours du premier mois ?</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- PAGE BREAK -->
+    <div class="page-break"></div>
+
+    <h3 class="subsection-title">4.3 How I prepared</h3>
+    <ol>
+      <li><strong>Analyse approfondie des offres PFE cibles :</strong> Extraction des compétences clés demandées (React, Spring Boot, micro-services, APIs REST, Docker) pour aligner mon discours.</li>
+      <li><strong>Entraînement chronométré :</strong> Pratique à voix haute pour limiter chaque réponse technique entre 60 et 90 secondes sans lecture de notes.</li>
+      <li><strong>Simulation enregistrée :</strong> Enregistrement vidéo avec caméra au niveau des yeux et microphone dédié, avec questions posées aléatoirement par un camarade.</li>
+    </ol>
+    <p style="margin-top: 6pt;">
+      Video link: [to add after recording] __________________________________________________
+    </p>
+
+    <h3 class="subsection-title">4.4 Self-evaluation (to fill in after watching the video)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 25%;">Criterion</th>
+          <th style="width: 55%;">What good looks like</th>
+          <th style="width: 20%;">Score /5</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Structure</strong></td>
+          <td>Clear answers, STAR framework applied to problem-solving stories</td>
+          <td>[ /5 ]</td>
+        </tr>
+        <tr>
+          <td><strong>Concrete proof</strong></td>
+          <td>Names, features, metrics (&lt;80ms, JWT, Kibana, JUnit 5)</td>
+          <td>[ /5 ]</td>
+        </tr>
+        <tr>
+          <td><strong>Technical depth</strong></td>
+          <td>Explains <em>why</em> architecture choices were made, not just <em>what</em></td>
+          <td>[ /5 ]</td>
+        </tr>
+        <tr>
+          <td><strong>Honesty about gaps</strong></td>
+          <td>Admits limits gracefully, presents a clear learning plan</td>
+          <td>[ /5 ]</td>
+        </tr>
+        <tr>
+          <td><strong>Concision</strong></td>
+          <td>60–90 seconds per answer, no rambling or filler words</td>
+          <td>[ /5 ]</td>
+        </tr>
+        <tr>
+          <td><strong>Language</strong></td>
+          <td>Fluent professional French, correct technical English terminology</td>
+          <td>[ /5 ]</td>
+        </tr>
+        <tr>
+          <td><strong>Non-verbal</strong></td>
+          <td>Consistent eye contact with camera, open posture, calm and assured tone</td>
+          <td>[ /5 ]</td>
+        </tr>
+        <tr>
+          <td><strong>Motivation</strong></td>
+          <td>Tailored enthusiasm for the targeted company&apos;s challenges</td>
+          <td>[ /5 ]</td>
+        </tr>
+        <tr>
+          <td><strong>Total Score</strong></td>
+          <td><strong>Aggregate simulation rating</strong></td>
+          <td><strong>[ /40 ]</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="subsection-title">4.5 What I will improve before a real interview</h3>
+    <p style="font-style: italic; color: #475569;">
+      [To complete after review. Key focus points: Practice live whiteboard architecture diagramming for the Spring Boot and React data-flow; eliminate verbal pauses (&apos;euh&apos;); ensure smoother transitions between technical depth and business impact.]
+    </p>
+
+    <!-- ANNEX A -->
+    <span class="deliverable-tag" style="margin-top: 24pt;">ANNEX A</span>
+    <h2 class="section-title">AI Usage Log</h2>
+    <p style="font-style: italic; color: #475569; margin-bottom: 12pt;">
+      What the teacher asks: every time I used AI for this file: what it gave me, what I kept, and what I changed.
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 12%;">Date</th>
+          <th style="width: 8%;">Deliv.</th>
+          <th style="width: 25%;">Tool + prompt</th>
+          <th style="width: 25%;">What the AI produced</th>
+          <th style="width: 30%;">What I kept / What I corrected &amp; why</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>24 Nov 2026</td>
+          <td>1</td>
+          <td>Antigravity (Gemini): Analyze my CV and projects to diagnose strengths and gaps.</td>
+          <td>Skills inventory, SWOT matrix, target job proposal.</td>
+          <td><strong>Kept:</strong> Recognition of dual internship value.<br><strong>Corrected:</strong> Reduced inflated &quot;Security Specialist&quot; title to &quot;Cloud Systems Specialist&quot; because my actual experience is in supervision and WAF, not ethical hacking.</td>
+        </tr>
+        <tr>
+          <td>24 Nov 2026</td>
+          <td>2</td>
+          <td>Claude: Write a professional French PFE cover letter from my verified CV.</td>
+          <td>One-page structured French letter with placeholders.</td>
+          <td><strong>Kept:</strong> Structure and formal tone.<br><strong>Corrected:</strong> Removed generic flattery; added precise metrics (sub-80ms, JWT, Kibana, JUnit 5) and my real phone number.</td>
+        </tr>
+        <tr>
+          <td>24 Nov 2026</td>
+          <td>3</td>
+          <td>Antigravity: Redesign my portfolio into a Cyber HUD theme in normal basic blue.</td>
+          <td>HTML5, Tailwind, Canvas background, live code typewriter, Bash terminal.</td>
+          <td><strong>Kept:</strong> Interactive code synthesis, Bash console.<br><strong>Corrected:</strong> Replaced toxic matrix green with corporate Electric Blue; replaced AI avatar with my real studio portrait.</td>
+        </tr>
+        <tr>
+          <td>24 Nov 2026</td>
+          <td>3</td>
+          <td>Antigravity / Web: Search real full-stack and cloud internship offers and salaries in Tunisia.</td>
+          <td>8 offers, salary ranges from Africarrières and Tanitjobs.</td>
+          <td><strong>Kept:</strong> Salary benchmarks and required stack counts.<br><strong>Corrected:</strong> Cross-verified that PFE stipends vary between unpaid and 1,200 TND depending on company tier.</td>
+        </tr>
+        <tr>
+          <td>24 Nov 2026</td>
+          <td>4</td>
+          <td>Antigravity: Generate technical STAR interview questions for full-stack PFE.</td>
+          <td>14 questions and answer frameworks.</td>
+          <td><strong>Kept:</strong> STAR structure.<br><strong>Corrected:</strong> Rewrote all answers with my real project facts from EduPath and VERMEG; removed all simulated claims.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="subsection-title">Limits of AI I observed</h3>
+    <ul>
+      <li><strong>Tendency to exaggerate:</strong> AI automatically promoted my profile to &quot;Senior Full-Stack Architect&quot;. I had to actively downgrade claims to remain honest and defensible for a junior/PFE student.</li>
+      <li><strong>Generic tone:</strong> Initial letters used hollow clichés (&quot;dynamique et motivé&quot;). Replacing these with tangible deliverables (JWT auth, MySQL connection pooling, Kibana dashboards) created genuine impact.</li>
+      <li><strong>Inability to evaluate code quality:</strong> AI reads keywords from CVs, but cannot verify if a query is truly optimized or if error handling is robust. I had to manually audit my GitHub code.</li>
+    </ul>
+
+    <!-- ANNEX B -->
+    <span class="deliverable-tag" style="margin-top: 24pt;">ANNEX B</span>
+    <h2 class="section-title">Sources</h2>
+    <p style="font-style: italic; color: #475569; margin-bottom: 12pt;">
+      What the teacher asks: accessed 24 November 2026.
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 30%;">Source</th>
+          <th style="width: 70%;">Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>My Online Portfolio</strong></td>
+          <td><a href="https://yassinebouazizi-dev.github.io/portfolio/">https://yassinebouazizi-dev.github.io/portfolio/</a></td>
+        </tr>
+        <tr>
+          <td><strong>My GitHub Profile</strong></td>
+          <td><a href="https://github.com/yassinebouazizi-dev">https://github.com/yassinebouazizi-dev</a></td>
+        </tr>
+        <tr>
+          <td><strong>Offer 1 — VERMEG PFE</strong></td>
+          <td>https://www.vermeg.com/careers/pfe-book-2026/ (Full-stack &amp; Cloud)</td>
+        </tr>
+        <tr>
+          <td><strong>Offer 2 — Sofrecom Tunisie</strong></td>
+          <td>https://www.sofrecom.com/carrieres/offres-pfe/ (Supervision &amp; Cloud)</td>
+        </tr>
+        <tr>
+          <td><strong>Offer 3 — My Open Digital</strong></td>
+          <td>https://www.tanitjobs.com/job/739144/stage-pfe-developpeur-web-full-stack-f-h/</td>
+        </tr>
+        <tr>
+          <td><strong>Offer 4 — Bestlab (UMIEX)</strong></td>
+          <td>https://www.tanitjobs.com/job/2057418/stage-pre-embauche-h-f-developpeur-full-stack/</td>
+        </tr>
+        <tr>
+          <td><strong>Offer 5 — Actia Engineering</strong></td>
+          <td>https://www.keejob.com/offres-emploi/pfe-java-spring-boot-actia/</td>
+        </tr>
+        <tr>
+          <td><strong>Offer 6 — Dev Digital</strong></td>
+          <td>https://www.tanitjobs.com/job/2069112/developpeur-se-junior-h-f-debutant-accepte/</td>
+        </tr>
+        <tr>
+          <td><strong>Salaries — Africarrières 2026</strong></td>
+          <td>https://africarrieres.com/tunisia/en/guide/marche-emploi/salary-guide</td>
+        </tr>
+        <tr>
+          <td><strong>Salaries — Tanitjobs IT Report</strong></td>
+          <td>https://www.tanitjobs.com/blog/629/developpeur-informatique-tunisie-salaires-2026/</td>
+        </tr>
+        <tr>
+          <td><strong>Salaries — OpenShores Tunis</strong></td>
+          <td>https://www.openshores.co/blog/tunisie/tunis/salaires-a-tunis</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="footer-note">
+      Yassine Bouazizi — Professional Application File — Job Search &amp; Self-Marketing · ISET Sidi Bouzid 2026–2027
+    </div>
+
+  </div>
+
+</body>
+</html>
